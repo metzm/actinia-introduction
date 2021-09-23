@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="canonical" href="https://pages.gitlab.io/actinia-introduction/">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>A gentle introduction to actinia</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "A gentle introduction to actinia";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/actinia-introduction/";
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> A gentle introduction to actinia</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">A gentle introduction to actinia</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#abstract">Abstract</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#required-software-for-this-tutorial">Required software for this tutorial</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#actinia-tutorial-overview">actinia tutorial overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#warming-up">Warming up</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#why-cloud-computing">Why cloud computing?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#overview-actinia">Overview actinia</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#components-of-actinia">Components of actinia</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deployment">Deployment</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rest-api-and-geoprocessing-basics">REST API and geoprocessing basics</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-rest-intro">What is REST: intro</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#endpoint">Endpoint</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-body">Header &amp; Body</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#response-codes">Response codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#related-data-format-json">Related data format: JSON</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#first-hand-on-working-with-rest-api-requests">First Hand-on: working with REST API requests</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#step-by-step">Step by step...</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exploring-the-api-finding-available-actinia-endpoints">Exploring the API: finding available actinia endpoints</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#rest-actinia-examples-with-curl">REST actinia examples with curl</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#preparation">Preparation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#list-available-locations">List available locations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#list-mapsets-in-locations">List mapsets in locations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#list-map-layers-and-their-metadata">List map layers and their metadata</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#map-layer-and-space-time-cube-queries">Map layer and space-time cube queries</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sending-json-payload-as-a-file">Sending JSON payload as a file</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#validation-of-a-process-chain">Validation of a process chain</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#converting-a-process-chain-back-into-commands">Converting a process chain back into commands</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#data-exchange-import-and-export">Data exchange: import and export</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dealing-with-workflows-processing-chains">Dealing with workflows (processing chains)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#controlling-actinia-from-a-running-grass-gis-session">Controlling actinia from a running GRASS GIS session</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#introduction-to-ace-actinia-command-execution">Introduction to ace - actinia command execution</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#preparation_1">Preparation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#needed-python-libraries">Needed Python libraries</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#installation-of-ace-importer-and-exporter-tools">Installation of ace, importer and exporter tools</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#first-steps-with-ace">First steps with ace</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#authentication-settings">Authentication settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#available-data-on-the-mundialis-actinia-server">Available data on the mundialis actinia server</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#list-locations-mapsets-and-maps">List locations, mapsets and maps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#acessing-maps-in-a-different-mapset">Acessing maps in a different mapset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#usage-of-external-data-sources">Usage of external data sources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#job-management">Job management</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#inspecting-the-rest-call-prior-to-submission-show-process-chain">Inspecting the REST call prior to submission: show process chain</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#displaying-a-map-map-rendering">Displaying a map - map rendering</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#examples-for-ephemeral-processing">Examples for ephemeral processing</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#command-line-examples">Command line examples</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#script-examples">Script examples</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-computing-slope-and-aspect-and-univariate-statistics-from-an-elevation-model">Example 1: computing slope and aspect and univariate statistics from an elevation model</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-orthophoto-image-segmentation-with-export">Example 2: Orthophoto image segmentation with export</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#examples-for-persistent-processing">Examples for persistent processing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#super-admin-tasks">Super admin tasks</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#creation-of-new-locations">Creation of new locations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#installing-of-grass-gis-addons-extensions">Installing of GRASS GIS addons (extensions)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#suggestions-for-computations-using-data-in-the-nc_spm_08-location">Suggestions for computations using data in the nc_spm_08 location</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#further-examples-incl-spatio-temporal-sampling">Further examples incl. Spatio-Temporal sampling</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#own-exercises-in-actinia">Own exercises in actinia</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exercise-population-at-risk-near-coastal-areas">EXERCISE: "Population at risk near coastal areas"</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exercise-property-risks-from-trees">EXERCISE: "Property risks from trees"</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conclusions-and-future">Conclusions and future</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#see-also">See also</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-does-actinia-mean">What does actinia mean?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-contribute-to-actinia">How to contribute to actinia</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#openeo-resources">openEO resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rest-introduction">REST introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-command-line-on-windows">Using command line on Windows</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#references">References</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#acknowledgement">Acknowledgement</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="about/">About the trainer</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">A gentle introduction to actinia</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>A gentle introduction to actinia</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="a-gentle-introduction-to-actinia">A gentle introduction to actinia</h1>
+<p>Author: Markus Neteler, mundialis GmbH &amp; Co. KG, Bonn</p>
+<!-- **** Begin Fork-Me-On-Gitlab-Ribbon-HTML. See MIT License at https://gitlab.com/seanwasere/fork-me-on-gitlab **** -->
+<p><a href="https://github.com/mmacata/actinia-introduction/">
+    <span style="font-family: tahoma; font-size: 18px; position:fixed; top:50px; right:-45px; display:block; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); background-color:green; color:white; padding: 4px 30px 4px 30px; z-index:99; opacity:0.6">Fork Me On GitHub</span>
+</a></p>
+<!-- **** End Fork-Me-On-Gitlab-Ribbon-HTML **** -->
+
+<p>URL of this dcument: <a href="https://mmacata.github.io/actinia-introduction/">https://mmacata.github.io/actinia-introduction/</a></p>
+<p>This workshop is a fork of https://neteler.gitlab.io/actinia-introduction. The initial workshop has a more detailed chapter about ace - the actinia command execution. This workshop focuses more on the "bare" HTTP API from actinia.</p>
+<p><em>Last update: 21 Sep 2021</em></p>
+<h2 id="abstract">Abstract</h2>
+<p><img src="img/actinia_logo.svg" width="30%" align="right"></p>
+<p>Actinia (<a href="https://actinia.mundialis.de/">https://actinia.mundialis.de/</a>) is an open source REST API for scalable, distributed, high performance processing of geographical data that uses mainly GRASS GIS for computational tasks. Core functionality includes the processing of single scenes and time series of satellite images, of raster and vector data. With the existing (e.g. Landsat) and Copernicus Sentinel big geodata pools which are growing day by day, actinia is designed to follow the paradigm of bringing algorithms to the cloud stored geodata. Actinia is an OSGeo Community Project since 2019.</p>
+<p>In this course we will briefly give a short introduction to REST API and cloud processing concepts. This is followed by an introduction to actinia processing along with hands-on to get more familiar with the topic by means of exercises.</p>
+<p><a href="https://doi.org/10.5281/zenodo.2631917"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.2631917.svg" /></a></p>
+<h2 id="required-software-for-this-tutorial">Required software for this tutorial</h2>
+<p>We will use a command line tool or browser plugin to try out some REST commands. Then we'll also use GRASS GIS and a special command to control actinia from remote. This requires some software to be installed:</p>
+<ul>
+<li>REST client (command line tool or browser plugin):<ul>
+<li><a href="https://curl.haxx.se/docs/manpage.html">cURL</a>, to be used on command line</li>
+<li>Extensions for Chrome/Chromium browser:<ul>
+<li><a href="https://chrome.google.com/webstore/detail/restman/ihgpcfpkpmdcghlnaofdmjkoemnlijdi">RESTman extension</a></li>
+<li>and a nice <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa">JSON Formatter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>For the "ace - actinia command execution" section:<ul>
+<li>GRASS GIS 7.8+ (<a href="https://grass.osgeo.org/download/">download</a>)</li>
+<li>three additional Python packages:<ul>
+<li>Linux: <code>pip3 install click requests simplejson</code></li>
+<li>Windows users (Installer: <a href="https://trac.osgeo.org/osgeo4w/">OSGeo4W</a> &gt; Advanced installation &gt; Search window):<ul>
+<li>python3-click, python3-requests, python3-simplejson</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ace - <a href="https://github.com/mundialis/actinia_core/blob/master/scripts/README.md">actinia command execution</a> (to be run from a GRASS GIS session; installation shown below)</li>
+<li><a href="https://stedolan.github.io/jq/download/">jq, a lightweight and flexible command-line JSON processor</a></li>
+<li>nice to have: <a href="https://www.qgis.org/en/site/forusers/download.html">QGIS</a></li>
+</ul>
+</li>
+</ul>
+<p><center>
+<a href="img/osgeo4w_python_libs.png"><img src="img/osgeo4w_python_libs.png" width="30%"></a> &nbsp; &nbsp;
+<a href="img/osgeo4w_grass78.png"><img src="img/osgeo4w_grass78.png" width="30%"></a>
+</center></p>
+<p>Note: We will use the demo actinia server at <a href="https://actinia.mundialis.de/">https://actinia.mundialis.de/</a> - hence Internet connection is required.</p>
+<h2 id="actinia-tutorial-overview">actinia tutorial overview</h2>
+<p><strong>Content</strong></p>
+<ul>
+<li>Warming up</li>
+<li>Introduction<ul>
+<li>Why cloud computing?</li>
+<li>Overview actinia</li>
+</ul>
+</li>
+<li>REST API and geoprocessing basics<ul>
+<li>What is REST: intro</li>
+</ul>
+</li>
+<li>First Hand-on: working with REST API requests<ul>
+<li>Step by step...</li>
+</ul>
+</li>
+<li>Exploring the API: finding available actinia endpoints<ul>
+<li>REST actinia examples with curl</li>
+</ul>
+</li>
+<li>Controlling actinia from a running GRASS GIS session<ul>
+<li>Further command line exercise suggestions</li>
+</ul>
+</li>
+<li>Own exercises in actinia</li>
+<li>Conclusions and future</li>
+<li>See also: openEO resources</li>
+<li>References</li>
+<li>About the trainer</li>
+</ul>
+<h2 id="warming-up">Warming up</h2>
+<!--
+(duration: 20 min)
+-->
+
+<p>To make you familiar with a few concepts, let's take a look at the "graphical intro to actinia" - <a href="https://mundialis.github.io/foss4g2019/grass-gis-in-the-cloud-actinia-geoprocessing/index.html">GRASS GIS in the cloud: actinia geoprocessing</a> (note: it requires the Chrome/ium browser; presentation provided by <a href="https://github.com/mmacata/">Carmen Tawalika</a>, mundialis).</p>
+<p><center>
+<img src="img/actinia_intro.png" width="60%">
+</center></p>
+<h2 id="introduction">Introduction</h2>
+<!--
+(duration: 10 min)
+-->
+
+<p>For this tutorial we assume working knowledge concerning <strong>geospatial analysis and Earth observation</strong> (i.e., geodata such as raster, vector, time series, and image data including aerial, drone, and satellite data).
+The tutorial includes, however, a brief introduction to <strong>REST</strong> (Representational State Transfer) API basics and cloud processing related hints.</p>
+<h3 id="why-cloud-computing">Why cloud computing?</h3>
+<p>With the tremendous increase of available geospatial and Earth observation lately driven by the European <a href="https://www.copernicus.eu">Copernicus programme</a> (esp. the Sentinel satellites) and the increasing availability of open data, the need for computational resources is growing in a non-linear way.</p>
+<p>Cloud technology offers a series of <strong>advantages</strong>:</p>
+<ul>
+<li>scalable, distributed, and high performance processing</li>
+<li>large quantities of Earth Observation (EO) and geodata provided in dedicated cloud infrastructures</li>
+<li>addressing the paradigm of computing next to the data</li>
+<li>no need to bother yourself with the low-level management of tons of data.</li>
+</ul>
+<p>(Ideally) enjoy the <strong>five V’s of big data</strong>: Volume, velocity, variety, veracity and value.</p>
+<p>Still, some critical <strong>issues</strong> have to be addressed in the geospatial realm:</p>
+<ul>
+<li>lack of Analysis-Ready-data (ARD) available for consumption in the cloud</li>
+<li>lack of compatibility between different data systems<ul>
+<li>btw., we are on it: the <a href="https://openeo.org">openEO H2020 project</a></li>
+</ul>
+</li>
+<li>lack of cloud abstraction, needed for easier move between vendors and providers.</li>
+</ul>
+<h3 id="overview-actinia">Overview actinia</h3>
+<p>Actinia (<a href="https://actinia.mundialis.de/">https://actinia.mundialis.de/</a>) is an <strong>open source REST API for scalable, distributed, high performance processing of geospatial and Earth observation data</strong> that uses mainly GRASS GIS for computational tasks. Core functionality includes the processing of single scenes and time series of satellite images, of raster and vector data. With the existing (e.g. Landsat) and Copernicus Sentinel big geodata pools which are growing day by day, actinia is designed to follow the paradigm of bringing algorithms to the cloud stored geodata. Actinia is an OSGeo Community Project since 2019. The source code is available on GitHub at <a href="https://github.com/mundialis/actinia_core">https://github.com/mundialis/actinia_core</a>. It is written in Python and uses Flask, Redis, and other components.</p>
+<h3 id="components-of-actinia">Components of actinia</h3>
+<p>Actinia is composed of several components.</p>
+<p>Core system:</p>
+<ul>
+<li><a href="https://github.com/mundialis/actinia_core/">actinia-core</a>: an open source REST API for scalable, distributed and, high performance processing of geographical data that uses mainly GRASS GIS for computational tasks. It can be installed as is or enhanced with multiple plugins.</li>
+</ul>
+<p>Plugins:</p>
+<ul>
+<li><a href="https://github.com/mundialis/actinia-module-plugin">actinia-module-plugin</a>: contains module self-description and process-chain-template management and processing</li>
+<li><a href="https://github.com/mundialis/actinia-metadata-plugin">actinia-metadata-plugin</a>: contains communication with a metadata catalog via OGC-CSW, in usage with GeoNetwork opensource</li>
+<li><a href="https://github.com/mundialis/actinia_statistic_plugin">actinia-statistic-plugin</a>: designed for computing raster map and raster-time-series statistics for categorical and continuous data</li>
+<li><a href="https://github.com/mundialis/actinia_satellite_plugin">actinia-satellite-plugin</a>: designed for efficient satellite data handling, especially Landsat and Sentinel-2 scenes</li>
+<li><a href="https://github.com/mundialis/actinia-stac-plugin">actinia-stac-plugin</a>: Plugin for actinia to read STAC catalogs and retrieve data for processing</li>
+</ul>
+<p>Related:</p>
+<ul>
+<li><a href="https://github.com/Open-EO/openeo-grassgis-driver">openeo-grassgis-driver</a>: OpenEO driver for GRASS GIS/actinia. Backend description at https://openeo.mundialis.de/.well-known/openeo</li>
+</ul>
+<p><center>
+<a href="img/actinia-plugins.png"><img src="img/actinia-plugins.png" width="80%"></a><br>
+Fig. 1: Components of actinia (core and plugins)
+</center></p>
+<p><strong>Functionality beyond GRASS GIS</strong></p>
+<p>Actinia is not only a REST interface to GRASS GIS, but it offers the possibility to extend its functionality with other software (ESA SNAP, GDAL, ...). To integrate other than GRASS GIS software, a wrapper script is to be written (style: as a GRASS GIS Addon Python script) which then includes the respective function calls of the software to be integrated. Calling shell commands in an actinia process chain is also possible but limited due to security risks.</p>
+<p><strong>Persistent and ephemeral databases</strong></p>
+<p><strong>Persistent storage</strong> refers to a data store that retains data even in the event of a power-off, as well as retaining it without a scheduled deletion time. In the geo/EO context, persistent storage is used to provide, for example, base cartography, i.e. elevation models, road networks, building footprints, etc.</p>
+<p>The <strong>ephemeral storage</strong> is used for on demand computed results including user generated data and temporary data as occurring in processing chains. In an ephemeral storage, data are only kept for a limited period of time (e.g., in actinia, for 24 hs by default).</p>
+<p>In the cloud computing context these differences are relevant as cost incurs when storing data.</p>
+<p>Accordingly, actinia offers two modes of operation: persistent and ephemeral processing. In particular, the <strong>actinia server</strong> is typically deployed on a server with access to a persistent GRASS GIS database (PDB) and optionally to one or more GRASS GIS user databases (UDB).</p>
+<p>Actinia is deployed multiple times as so called <strong>actinia nodes</strong> (separate physically distinct machines) where the actual computations are performed. They can be deployed with the help of cloud technology like e.g. kubernetes, openshift and docker-swarm. This technology then acts as a <strong>load balancer</strong>, distributing jobs to actinia nodes. Results are either stored in GRASS UDBs in GRASS native format or directly exported to a different data format (see Fig. 2).</p>
+<p><center>
+<a href="img/actinia_PDB_UDB.png"><img src="img/actinia_PDB_UDB.png" width="60%"></a><br>
+Fig. 2: Persistent and ephemeral storage with actinia nodes (source: <a href="https://mundialis.github.io/foss4g2019/grass-gis-in-the-cloud-actinia-geoprocessing/index.html">mundialis FTTH talk 2019</a>)
+</center></p>
+<p><strong>Architecture of actinia</strong></p>
+<p>Several <strong>components</strong> play a role in a cloud deployment of actinia (for an example, see Fig. 3):</p>
+<ul>
+<li>analytics: here are the workers of GRASS GIS or wrapped other software (GDAL, ESA-SNAP, ...),</li>
+<li>external data sources: import providers for various external data sources,</li>
+<li>interface layer:<ul>
+<li>most importantly, the <strong>REST API</strong>,</li>
+<li><a href="https://github.com/Open-EO/openeo-grassgis-driver">openEO GRASS GIS driver</a>,</li>
+<li>ace - <a href="https://github.com/mundialis/ace">actinia command execution</a> (to be run in a GRASS GIS session),</li>
+</ul>
+</li>
+<li>GDI management: actinia-gdi helps integrating actinia-core in an existing GDI (Geodata Infrastructure, also called SDI: Spatial Data Infrastructure) including process-chain manipulation and job management, through <a href="https://github.com/mundialis/actinia-gdi">actinia-GDI</a>,</li>
+<li>metadata management: interface to GNOS via OGC-CSW, managed through <a href="https://github.com/mundialis/actinia-metadata-plugin">actinia-metadata-plugin</a>,</li>
+<li>module self-description and process-chain-template management and processing, managed through <a href="https://github.com/mundialis/actinia-module-plugin">actinia-module-plugin</a>,</li>
+<li>database system:<ul>
+<li>job management in a Redis database,</li>
+<li>the GRASS GIS database (here are the geo/EO data stored!),</li>
+</ul>
+</li>
+<li>connection to OGC Web services for output:</li>
+<li>Geoserver integration.</li>
+</ul>
+<p><center>
+<a href="img/actinia_architecture_FTTH.png"><img src="img/actinia_architecture_FTTH.png" width="60%"></a><br>
+Fig. 3: Architecture of an actinia deployment (source: mundialis)
+</center></p>
+<h3 id="deployment">Deployment</h3>
+<p>In short, deployment means starting software, usually in an automated way on one or more computer nodes. There are a number of technologies for this. In particular, virtualisation plays an important role here, which avoids a high dependency on hardware and software characteristics through abstraction.</p>
+<p>An aim is to operate <strong>Infrastructure as Code</strong> (<a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">IaC</a>), i.e. to have a set of scripts which order the needed computational resources in the cloud, setup the network and storage topology, connect to the nodes, install them with the needed software (usually docker based, i.e. so-called containers are launched from prepared images) and processing chains. Basically, the entire software part of a cloud computing infrastructure is launched "simply" through scripts with the advantage of restarting it easily as needed, maintain it and migrate to other hardware.</p>
+<p><strong>CI/CD</strong> systems (continuous integration/continuous deployment) allow to define dependencies, prevent from launching broken software and allow the versioning of the entire software stack.</p>
+<p>With respect to actinia, <strong>various ways of <a href="https://github.com/mundialis/actinia_core/tree/master/docker">deployment</a></strong> are offered: local installation, docker, docker-compose, docker-swarm, Openshift, and kubernetes.</p>
+<h2 id="rest-api-and-geoprocessing-basics">REST API and geoprocessing basics</h2>
+<!--
+(duration: 20 min)
+-->
+
+<h3 id="what-is-rest-intro">What is REST: intro</h3>
+<p>An <strong>API</strong> (Application Programming Interface) defines a way of communicating between different software applications. A <strong>RESTful</strong> API (Representational State Transfer - REST, for details see <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">https://en.wikipedia.org/wiki/Representational_state_transfer</a>) is a web API for communicating with web resources.</p>
+<p>In detail, a REST API uses URL arguments to specify what information shall be returned through the API. This is not much different from requesting a Web page in a browser, but through the REST API we can <strong>execute commands remotely and retrieve the results</strong>.</p>
+<p>Each URL is called a <strong>request</strong> while the data sent back to the user is called a <strong>response</strong>, after some <strong>processing</strong> was performed.</p>
+<p>There are two types of request: <strong>synchronous</strong> and <strong>asynchronous</strong>. In the case of a synchronous request, the client sends it to the server and waits for a response. In geospatial computing, processing can take some time, which would block the client because it is only waiting. In default configurations the communication is canceled by the client after some minutes, called a "timeout". To avoid this, there is also the asynchronous request type. Here the client does not wait directly for a response, but checks from time to time whether the job has been completed (by "polling"), or by providing an API itself which will be informed when the job is finished ("webhook").</p>
+<p>A <strong>request</strong> requires/consists of four parts (see also [1]):</p>
+<ul>
+<li>the endpoint</li>
+<li>the header</li>
+<li>the data (or body)</li>
+<li>the methods</li>
+</ul>
+<h3 id="endpoint">Endpoint</h3>
+<p>In general, an endpoint is an entry point to a service, a process, or a queue or topic destination in service-oriented architectures. In the case of actinia, it may be a data query function, the computation of a vegetation index, the deletion of a dataset, and more.
+Effectively, an endpoint is the URL you request for. It follows this structure: https://api.some.server/endpoint.
+The final part of an endpoint are the query parameters. Using query parameters you can modify your request with key-value pairs, beginning with a question mark (<code>?</code>). With an ampersand (<code>&amp;</code>) each parameter pair is separated, e.g.:</p>
+<p><code>?query1=value1&amp;query2=value2</code></p>
+<p>As an example, we check the repositories of a GitHub user, in sorted form, using the <code>repos</code> endpoint + query:</p>
+<p><a href="https://api.github.com/users/mmacata/repos?sort=pushed">https://api.github.com/users/mmacata/repos?sort=pushed</a></p>
+<h3 id="header-body">Header &amp; Body</h3>
+<ul>
+<li>Both requests and responses have two parts: a header, and optionally a body</li>
+<li>Header information contain e.g. authentication</li>
+<li>In both requests and responses, the body contains the actual data being transmitted</li>
+<li>The request body is only necessary for certain HTTP methods (e.g. HTTP POST) and can contain any form of data, e.g. an actinia process chain</li>
+<li>The response body returns information or results. Examples in actinia are json data or GeoTIFF results</li>
+</ul>
+<h3 id="methods">Methods</h3>
+<p>Request <strong>methods</strong> (source: [2]):</p>
+<ul>
+<li>In REST APIs, every request has an HTTP method type associated with it.</li>
+<li>The most common HTTP methods (or verbs) include:<ul>
+<li><code>GET</code> - a GET request asks to receive a copy of a resource</li>
+<li><code>POST</code> - a POST request sends data to a server in order to replace existing or create new resources</li>
+<li><code>PUT</code> - a PUT request sends data to a server in order to change or update resources</li>
+<li><code>DELETE</code> - a DELETE request is sent to remove or destroy a resource</li>
+</ul>
+</li>
+</ul>
+<h3 id="response-codes">Response codes</h3>
+<ul>
+<li>HTTP responses don't have methods, but they do have status codes: HTTP status codes are included in the header of every response in a REST API. Status codes include information about the result of the original request.</li>
+<li>Selected status codes (see also <a href="https://httpstatuses.com">https://httpstatuses.com</a>):<ul>
+<li><code>200</code> - OK | All fine</li>
+<li><code>404</code> - Not Found | The requested resource was not found</li>
+<li><code>401</code> - Unauthorized | The request was rejected, as the sender is not (or wrongly) authorized</li>
+<li><code>500</code> - Internal Server Error | Ouch, something went wrong while the server was processing your request</li>
+</ul>
+</li>
+</ul>
+<h3 id="related-data-format-json">Related data format: JSON</h3>
+<p>JSON is a structured, machine readable format (while also human readable; in contrast to XML, at least for many people). <a href="https://json.org/">JSON</a> is short for JavaScript Object Notation. For example, this command line call...</p>
+<pre><code class="language-bash">GRASS 7.8.git (nc_spm_08):~ &gt; v.buffer input=roadlines output=roadbuf10 distance=10 --json
+</code></pre>
+<p>... looks like the following in JSON:</p>
+<pre><code class="language-json">{
+  &quot;module&quot;: &quot;v.buffer&quot;,
+  &quot;id&quot;: &quot;v.buffer_1804289383&quot;,
+  &quot;inputs&quot;:[
+     {&quot;param&quot;: &quot;input&quot;, &quot;value&quot;: &quot;roadlines&quot;},
+     {&quot;param&quot;: &quot;layer&quot;, &quot;value&quot;: &quot;-1&quot;},
+     {&quot;param&quot;: &quot;type&quot;, &quot;value&quot;: &quot;point,line,area&quot;},
+     {&quot;param&quot;: &quot;distance&quot;, &quot;value&quot;: &quot;10&quot;},
+     {&quot;param&quot;: &quot;angle&quot;, &quot;value&quot;: &quot;0&quot;},
+     {&quot;param&quot;: &quot;scale&quot;, &quot;value&quot;: &quot;1.0&quot;}
+   ],
+  &quot;outputs&quot;:[
+     {&quot;param&quot;: &quot;output&quot;, &quot;value&quot;: &quot;roadbuf10&quot;}
+   ]
+}
+</code></pre>
+<p>Hint: When writing JSON files, some linting (process of checking the source code for programmatic as well as stylistic errors) might come handy, e.g. by using <a href="https://jsonlint.com/">https://jsonlint.com/</a>.</p>
+<h2 id="first-hand-on-working-with-rest-api-requests">First Hand-on: working with REST API requests</h2>
+<!--
+(duration: 50 min)
+-->
+
+<h3 id="step-by-step">Step by step...</h3>
+<p>Step 1:</p>
+<ul>
+<li>Get your credentials (for authentication) from the trainer or use the <code>demouser</code> with <code>gu3st!pa55w0rd</code></li>
+</ul>
+<p>Step 2:</p>
+<ul>
+<li>Try this call, simply in a browser: <a href="https://actinia.mundialis.de/api/v1/locations">https://actinia.mundialis.de/api/v1/locations</a></li>
+<li>What does it show?</li>
+</ul>
+<p>Step 3:</p>
+<ul>
+<li>Choose and launch your REST client: cURL or RESTman or ...<ul>
+<li>a) <a href="https://curl.haxx.se/docs/manpage.html">cURL</a>, on command line</li>
+<li>b) <a href="https://www.thunderclient.io/">Thunderclient plugin</a>, for VS Code editor or find a plugin for your favorite editor</li>
+<li>c) <a href="https://chrome.google.com/webstore/detail/restman/ihgpcfpkpmdcghlnaofdmjkoemnlijdi">RESTman</a> (<a href="https://github.com/jsargiot/restman">manual</a>), in Browser</li>
+</ul>
+</li>
+<li>Try the same request again:</li>
+</ul>
+<p><center>
+<a href="img/actinia_restman01.png"><img src="img/actinia_restman01.png" width="60%"></a><br>
+<a href="img/actinia_restman02.png"><img src="img/actinia_restman02.png" width="60%"></a><br>
+Fig. 4: Using RESTman
+</center></p>
+<p>For a <code>curl</code> example, see below ("<a href="index.html#rest-actinia-examples-with-curl">REST actinia examples with curl</a>").</p>
+<p>Step 4:</p>
+<ul>
+<li>Explore the existing data on the actinia server:<ul>
+<li>i.e., available GRASS locations, mapsets, raster, vector, and space-time datasets</li>
+<li>Check the <a href="https://github.com/mundialis/actinia_core/blob/master/scripts/README.md#available-data">list of data</a> currently available on the actinia server</li>
+<li>e.g.<ul>
+<li><a href="https://actinia.mundialis.de/api/v1/locations">https://actinia.mundialis.de/api/v1/locations</a></li>
+<li><a href="https://actinia.mundialis.de/api/v1/locations/nc_spm_08/mapsets">https://actinia.mundialis.de/api/v1/locations/nc_spm_08/mapsets</a></li>
+<li><a href="https://actinia.mundialis.de/api/v1/locations/nc_spm_08/mapsets/landsat/raster_layers">https://actinia.mundialis.de/api/v1/locations/nc_spm_08/mapsets/landsat/raster_layers</a></li>
+<li><a href="https://actinia.mundialis.de/api/v1/locations/nc_spm_08/mapsets/landsat/raster_layers/lsat5_1987_10">https://actinia.mundialis.de/api/v1/locations/nc_spm_08/mapsets/landsat/raster_layers/lsat5_1987_10</a></li>
+</ul>
+</li>
+<li>Note: <code>process_results</code> are ordered alphabetically, not thematically</li>
+</ul>
+</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<p>So far we have seen some REST basics and explored a few endpoints provided by actinia.
+Indeed the structure of the endpoints follow some GRASS GIS concepts (compare the graphical introduction above), but this does not limit us much from processing "any" geospatial data.</p>
+<h2 id="exploring-the-api-finding-available-actinia-endpoints">Exploring the API: finding available actinia endpoints</h2>
+<!--
+(duration: 40 min)
+-->
+
+<p>The actinia REST API documentation is available online (directly generated from the source code of actinia).
+Check out some of the various sections in the <a href="https://redocly.github.io/redoc/?url=https://actinia.mundialis.de/api/v1/swagger.json">actinia API docs</a>:</p>
+<ul>
+<li>Module Management</li>
+<li>Authentication Management</li>
+<li>API Log</li>
+<li>Cache Management</li>
+<li>File Management</li>
+<li>Satellite Image Algorithms</li>
+<li>Location Management</li>
+<li>Mapset Management</li>
+<li>Processing</li>
+<li>Raster Management</li>
+<li>Raster Statistics</li>
+<li>STRDS Management (STRDS = space-time raster data set)</li>
+<li>STRDS Sampling</li>
+<li>STRDS Statistics</li>
+<li>Vector Management</li>
+<li>GeoNetwork</li>
+<li>Resource Management</li>
+<li>User Management</li>
+</ul>
+<p>List of endpoints, shown in the web browser:</p>
+<ul>
+<li>To see a simple <strong>list of endpoints</strong> (and more), have a look at the "paths" section in the <a href="https://actinia.mundialis.de/api/v1/swagger.json">API JSON</a>. If the formatting looks "ugly", get the <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa">JSON Formatter</a> extension.</li>
+</ul>
+<p><center>
+<a href="img/actinia_swagger_paths.png"><img src="img/actinia_swagger_paths.png" width="60%"></a><br>
+Fig. 5: actinia list of endpoints (in the "paths" section)
+</center></p>
+<ul>
+<li><strong>List of supported processes</strong> (&gt; 500): see <a href="https://actinia-dev.mundialis.de/api/v1/modules">API modules</a> (note: the process chain templates are at bottom, category "actinia-module")</li>
+</ul>
+<p><center>
+<a href="img/actinia_modules.png"><img src="img/actinia_modules.png" width="60%"></a><br>
+Fig. 6: actinia list of GRASS GIS processes (&gt; 500)
+</center></p>
+<p>List of endpoints shown on command line:</p>
+<ul>
+<li>To get the available endpoints on command line, run</li>
+</ul>
+<pre><code class="language-bash">## we filter the paths on the fly with `jq`
+# note: no AUTH needed
+curl --no-progress-meter -X GET https://actinia.mundialis.de/api/v1/swagger.json | jq &quot;.&quot;paths | jq 'keys'
+[
+  &quot;/actiniamodules&quot;,
+  &quot;/actiniamodules/{actiniamodule}&quot;,
+  &quot;/api_key&quot;,
+  &quot;/api_log/{user_id}&quot;,
+  &quot;/download_cache&quot;,
+  &quot;/files&quot;,
+  &quot;/grassmodules&quot;,
+  &quot;/grassmodules/{grassmodule}&quot;,
+  &quot;/landsat_process/{landsat_id}/{atcor_method}/{processing_method}&quot;,
+  &quot;/landsat_query&quot;,
+  &quot;/locations&quot;,
+  &quot;/locations/{location_name}&quot;,
+  &quot;/locations/{location_name}/gdi_processing_async_export&quot;,
+  &quot;/locations/{location_name}/info&quot;,
+  &quot;/locations/{location_name}/mapsets&quot;,
+  &quot;/locations/{location_name}/mapsets/{mapset_name}&quot;,
+  &quot;/locations/{location_name}/mapsets/{mapset_name}/gdi_processing_async&quot;,
+  &quot;/locations/{location_name}/mapsets/{mapset_name}/info&quot;,
+  &quot;/locations/{location_name}/mapsets/{mapset_name}/landsat_import&quot;,
+...
+  &quot;/sentinel2_query&quot;,
+  &quot;/sentinel2a_aws_query&quot;,
+  &quot;/token&quot;,
+  &quot;/users&quot;,
+  &quot;/users/{user_id}&quot;
+]
+</code></pre>
+<!-- 
+
+<pre><code>## alternative: we filter the paths on the fly with `json`
+# installation: sudo npm install -g json
+
+curl -X GET https://actinia.mundialis.de/api/v1/swagger.json | json paths | json -ka
+ ... see above
+</code></pre>
+
+-->
+
+<h3 id="rest-actinia-examples-with-curl">REST actinia examples with curl</h3>
+<p>Here we use the command line and the <code>curl</code> software to communicate with the actinia server.
+Optionally, to beautify the output, we use the <code>jq</code> command-line JSON processor which helps to turn the output into something human readable (<a href="https://stedolan.github.io/jq/download/">download jq</a>).</p>
+<p>Hint: If you have troubles to use <code>jq</code> on command line, you can also use it in a browser at <a href="https://jqplay.org/">https://jqplay.org/</a>: copy the JSON code into the "JSON" field, then a <code>.</code> into the "Filter" field and it will show the result.</p>
+<h4 id="preparation">Preparation</h4>
+<p>To simplify our life in terms of server communication we store the credentials and REST server URL in environmental variables (this is only relevant for command line usage; in RESTman the browser will request the credentials):</p>
+<pre><code class="language-bash"># set credentials and REST server URL
+export actinia=&quot;https://actinia.mundialis.de&quot;
+export AUTH='-u demouser:gu3st!pa55w0rd'
+</code></pre>
+<h4 id="list-available-locations">List available locations</h4>
+<p>First, we want to see the list of available "locations". A location in GRASS-speak is simply a project folder which contains geospatial data:</p>
+<pre><code class="language-bash"># show available locations (locations are like projects)
+curl ${AUTH} -X GET ${actinia}/api/v1/locations
+</code></pre>
+<!--
+#### Show capabilities of user
+
+
+<pre><code class="language-bash"># NOTE: endpoint not available to the demouser but only to the admin user
+# show accessible_datasets, accessible_modules, raster cell_limit, process_num_limit, process_time_limit
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/users/demouser&quot;
+</code></pre>
+
+-->
+
+<h4 id="list-mapsets-in-locations">List mapsets in locations</h4>
+<p>Next, we look at so-called "mapsets" which are subfolders in a location (just to better organise the geospatial data):</p>
+<pre><code class="language-bash"># show available mapsets of a specific location
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets&quot;
+</code></pre>
+<p><center>
+<a href="img/curl_output_std.png"><img src="img/curl_output_std.png" width="60%"></a><br>
+</center></p>
+<p>Note the style difference of output:</p>
+<pre><code class="language-bash"># show available mapsets of a specific location
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets | jq&quot;
+</code></pre>
+<p><center>
+<a href="img/curl_output_jq.png"><img src="img/curl_output_jq.png" width="60%"></a><br>
+</center></p>
+<h4 id="list-map-layers-and-their-metadata">List map layers and their metadata</h4>
+<p>Eventually, digging more for content in "location" and "mapsets", we can look at the datasets stored therein:</p>
+<p>Vector data:</p>
+<pre><code class="language-bash"># show available vector maps in a specific location/mapset
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets/PERMANENT/vector_layers&quot;
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets/PERMANENT/vector_layers&quot; | jq
+
+# note: you can always add `| jq`
+
+# show metadata of a specific vector map
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets/PERMANENT/vector_layers/geology&quot;
+</code></pre>
+<p>Raster data:</p>
+<pre><code class="language-bash"># show available raster maps in a specific location/mapset
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets/PERMANENT/raster_layers&quot;
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets/landsat/raster_layers&quot;
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets/modis_lst/raster_layers&quot;
+
+# show metadata of a specific raster map
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets/landsat/raster_layers/lsat7_2000_40&quot;
+</code></pre>
+<p>Space-time raster datasets (STRDS):</p>
+<pre><code class="language-bash"># show available STRDS in a specific location/mapset
+# MODIS Land Surface Temperature data
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets/modis_lst/strds&quot;
+
+# show specific STRDS in a specific location/mapset
+# MODIS Normalized Difference Vegetation Index
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/latlong_wgs84/mapsets/modis_ndvi_global/strds/ndvi_16_5600m&quot;
+
+# Get a list or raster layers from a STRDS
+# ECAD: Yearly precipitation
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/ECAD/mapsets/PERMANENT/strds/precipitation_1950_2013_yearly_mm/raster_layers&quot;
+
+# Get a list or raster layers from a STRDS, with date filter
+# ECAD: Yearly precipitation
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/ECAD/mapsets/PERMANENT/strds/precipitation_1950_2013_yearly_mm/raster_layers?where=start_time&gt;2012-01-01&quot;
+</code></pre>
+<h4 id="map-layer-and-space-time-cube-queries">Map layer and space-time cube queries</h4>
+<p>It's time to retrieve something from the server. We want to query the stack of multitemporal datasets available and more specifically, retrieve MODIS Land Surface Temperature (LST) values from the space-time cube at a specific position (North Carolina data set; at <a href="https://www.openstreetmap.org/?mlat=36.00&amp;mlon=-78.00#map=10/36.00/-78.00">78W, 36N</a>). For this, we use the endpoint <a href="https://actinia.mundialis.de/api/v1/locations/nc_spm_08/mapsets/modis_lst/strds/LST_Day_monthly/sampling_sync_geojson">sampling_sync_geojson</a>:</p>
+<pre><code class="language-bash"># query point value in a STRDS, sending a GeoJSON file of the point position along with the request
+# (North Carolina LST time series)
+curl ${AUTH} -X POST -H &quot;content-type: application/json&quot; &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets/modis_lst/strds/LST_Day_monthly/sampling_sync_geojson&quot; -d '{&quot;type&quot;:&quot;FeatureCollection&quot;,&quot;crs&quot;:{&quot;type&quot;:&quot;name&quot;,&quot;properties&quot;:{&quot;name&quot;:&quot;urn:ogc:def:crs:EPSG::4326&quot;}},&quot;features&quot;:[{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;cat&quot;:1},&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-78,36]}}]}'
+</code></pre>
+<p>Using RESTman you need to pay attention to these changes:</p>
+<ul>
+<li>change type of request from GET to POST, in the top of the page lefthand of the URL</li>
+<li>set the right header <code>content-type</code> and <code>application/json</code> as value</li>
+<li>add the JSON in the body section in RAW format</li>
+</ul>
+<p><center>
+<a href="img/actinia_restman_post.png"><img src="img/actinia_restman_post.png" width="60%"></a><br>
+Fig. 7 RESTman POST request example (source: Luca Delucchi)
+</center></p>
+<h4 id="sending-json-payload-as-a-file">Sending JSON payload as a file</h4>
+<p>In the example above we have sent JSON code to the server directly in the request. However, with longer process chains this is hard to manage. It is often much more convenient to store the JSON code as "payload" in a file and send it to the server:</p>
+<pre><code class="language-bash"># note: you can easily generate such a GeoJSON file with ogr2ogr or v.out.ogr
+#
+# store the query in a JSON file &quot;pc_query_point_.json&quot; (or use a text editor for this)
+echo '{&quot;type&quot;:&quot;FeatureCollection&quot;,&quot;crs&quot;:{&quot;type&quot;:&quot;name&quot;,&quot;properties&quot;:{&quot;name&quot;:&quot;urn:ogc:def:crs:EPSG::4326&quot;}},&quot;features&quot;:[{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;cat&quot;:1},&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-78,36]}}]}' &gt; pc_query_point_.json
+
+# send JSON file as payload to query the STRDS
+curl ${AUTH} -X POST -H &quot;content-type: application/json&quot; &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets/modis_lst/strds/LST_Day_monthly/sampling_sync_geojson&quot; -d @pc_query_point_.json  | jq
+</code></pre>
+<h4 id="validation-of-a-process-chain">Validation of a process chain</h4>
+<p>Why validation? It may happen that your JSON file to be sent to the endpoint contains a typo or other invalid content. For the identification of problems prior to executing the commands contained in the JSON file (which may last for hours), it is recommended to validate this file.
+For this, actinia can be used as it provides a validation endpoint.</p>
+<p>Example: Download the process chain <a href="https://gitlab.com/neteler/actinia-introduction/raw/master/docs/process_chain_long.json">process_chain_long.json</a> and validate it:</p>
+<pre><code class="language-bash"># validation of a process chain (using sync call)
+curl ${AUTH} -H &quot;Content-Type: application/json&quot; -X POST &quot;${actinia}/api/v1/locations/nc_spm_08/process_chain_validation_sync&quot; -d @process_chain_long.json
+</code></pre>
+<h4 id="converting-a-process-chain-back-into-commands">Converting a process chain back into commands</h4>
+<p>To turn a process chain back into command style notation, the validator can be used and the relevant code extracted from the resulting JSON response.
+Download the process chain <a href="https://gitlab.com/neteler/actinia-introduction/raw/master/docs/process_chain_long.json">process_chain_long.json</a> and extract the section containing the underlying commands by parsing the actinia server response with <code>jq</code>:</p>
+<pre><code class="language-bash"># command extraction from a process chain (using sync call) by parsing the 'process_results' response (here we use the `jq` tool:)
+curl ${AUTH} --no-progress-meter -H &quot;Content-Type: application/json&quot; -X POST &quot;${actinia}/api/v1/locations/nc_spm_08/process_chain_validation_sync&quot; -d @process_chain_long.json | jq &quot;.&quot;process_results
+[
+  &quot;grass g.region ['raster=elevation@PERMANENT', 'res=10', '-p']&quot;,
+  &quot;grass r.slope.aspect ['elevation=elevation@PERMANENT', 'format=degrees', 'precision=FCELL', 'zscale=1.0', 'min_slope=0.0', 'slope=my_slope', 'aspect=my_aspect', '-a']&quot;,
+  &quot;grass r.watershed ['elevation=elevation@PERMANENT', 'convergence=5', 'memory=500', 'accumulation=my_accumulation']&quot;,
+  &quot;grass r.info ['map=my_aspect', '-gr']&quot;
+]
+</code></pre>
+<!--
+
+<pre><code># same thing, here we use the `json` tool:
+curl ${AUTH} --no-progress-meter -H &quot;Content-Type: application/json&quot; -X POST &quot;${actinia}/api/v1/locations/nc_spm_08/process_chain_validation_sync&quot; -d @process_chain_long.json | json process_results
+[
+  &quot;grass g.region ['raster=elevation@PERMANENT', 'res=4', '-p']&quot;,
+  &quot;grass r.slope.aspect ['elevation=elevation@PERMANENT', 'format=degrees', 'precision=FCELL', 'zscale=1.0', 'min_slope=0.0', 'slope=my_slope', 'aspect=my_aspect', '-a']&quot;,
+  &quot;grass r.watershed ['elevation=elevation@PERMANENT', 'convergence=5', 'memory=300', 'accumulation=my_accumulation']&quot;,
+  &quot;grass r.info ['map=my_aspect', '-gr']&quot;
+]
+</code></pre>
+
+-->
+
+<h3 id="data-exchange-import-and-export">Data exchange: import and export</h3>
+<p>Actinia can import from external Web resources, use data in the actinia server (persistent and ephemeral storage) and make results available for download as Web resources. These latter can then be downloaded, opened by QGIS, imported into GRASS GIS or other software.
+Note that the download of Web resources provided by actinia requires authentication, e.g. the <code>demouser</code>.</p>
+<p><strong>Available export formats</strong></p>
+<p>At time (more to come) the following export formats are supported:</p>
+<ul>
+<li>raster: <code>COG</code>, <code>GTiff</code></li>
+<li>vector: <code>GPKG</code>, <code>GML</code>, <code>GeoJSON</code>, <code>ESRI_Shapefile</code>, <code>SQLite</code>, <code>CSV</code></li>
+<li>database: <code>PostgreSQL</code></li>
+<li>table: <code>CSV</code>, <code>TXT</code></li>
+</ul>
+<h3 id="dealing-with-workflows-processing-chains">Dealing with workflows (processing chains)</h3>
+<p>The overall goal is to "get stuff done". In this case it means that we can concatenate (chain) a series of commands where the output of one step may be used as the input of the following step.</p>
+<p>The general procedure comprises:</p>
+<ul>
+<li>prepare a processing chain</li>
+<li>compare async(cronous) versus sync(cronous) REST API calls, decide which endpoint to use</li>
+<li>submit the processing chain to an actinia endpoint</li>
+<li>retrieve the result(s).</li>
+</ul>
+<!--
+(see also: [https://github.com/mundialis/actinia_core/blob/master/scripts/curl_commands.sh#L77](https://github.com/mundialis/actinia_core/blob/master/scripts/curl_commands.sh#L77)
+-->
+
+<p>To turn this concept into an example, we use again the process chain <a href="https://gitlab.com/neteler/actinia-introduction/raw/master/docs/process_chain_long.json">process_chain_long.json</a> from above and execute it, here using the asynchonous <code>processing_async_export</code> endpoint. By this, the <code>exporter</code> in the process chain will be activated and deliver the computed maps as Web resources for subsequent download:</p>
+<pre><code class="language-bash">curl ${AUTH} --no-progress-meter -H &quot;Content-Type: application/json&quot; -X POST &quot;${actinia}/api/v1/locations/nc_spm_08/processing_async_export&quot; -d @process_chain_long.json | jq
+</code></pre>
+<p>Being an asynchronous process, the result is not offered directly but at the bottom of the JSON output (in the terminal) a resource ID (red box) and a resource URI is shown:</p>
+<p><center>
+<a href="img/curl_resource_id.png"><img src="img/curl_resource_id.png" width="60%"></a><br>
+</center></p>
+<p>Use this URI for retrieving the process status, e.g. using your browser (<code>F5</code> to reload page until job is ready).
+Once the job has been completed ("Processing successfully finished"), three Web resources (here: COG - Cloud Optimized GeoTIFF) are shown at the bottom of the JSON output:</p>
+<pre><code class="language-bash"># update the URI to that of your job, and be sure to use https:
+curl ${AUTH} -X GET &quot;https://actinia.mundialis.de/api/v1/resources/demouser/resource_id-284d42c7-9ba7-415d-b675-cf1a534f4af0&quot; | jq
+
+...
+  &quot;status&quot;: &quot;finished&quot;,
+  &quot;time_delta&quot;: 3.7403182983398438,
+  &quot;timestamp&quot;: 1580767679.525925,
+  &quot;urls&quot;: {
+    &quot;resources&quot;: [
+      &quot;http://actinia.mundialis.de/api/v1/resources/demouser/resource_id-284d42c7-9ba7-415d-b675-cf1a534f4af0/my_slope.tiff&quot;,
+      &quot;http://actinia.mundialis.de/api/v1/resources/demouser/resource_id-284d42c7-9ba7-415d-b675-cf1a534f4af0/my_aspect.tiff&quot;,
+      &quot;http://actinia.mundialis.de/api/v1/resources/demouser/resource_id-284d42c7-9ba7-415d-b675-cf1a534f4af0/my_accumulation.tiff&quot;
+    ],
+    &quot;status&quot;: &quot;http://actinia.mundialis.de/api/v1/resources/demouser/resource_id-284d42c7-9ba7-415d-b675-cf1a534f4af0&quot;
+  },
+  &quot;user_id&quot;: &quot;demouser&quot;
+}
+</code></pre>
+<p>The resulting files can now be downloaded (they'll remain for 24 hs on the server).</p>
+<p><center>
+<a href="img/qgis_actinia_data_viz.png"><img src="img/qgis_actinia_data_viz.png" width="60%"></a><br>
+Fig. 8: actinia output shown in QGIS (aspect map)
+</center></p>
+<h2 id="controlling-actinia-from-a-running-grass-gis-session">Controlling actinia from a running GRASS GIS session</h2>
+<!--
+(duration: 40 min)
+-->
+
+<h3 id="introduction-to-ace-actinia-command-execution">Introduction to ace - actinia command execution</h3>
+<p>Controlling actinia from a running GRASS GIS session is a convenient way of writing process chains. It requires some basic GRASS GIS knowledge (for an intro course, e.g. see <a href="https://neteler.gitlab.io/grass-gis-analysis/">here</a>).</p>
+<p>The <code>ace</code> (actinia command execution) tool allows the execution of a single GRASS GIS command or a list of GRASS GIS commands on an actinia REST service (e.g., https://actinia.mundialis.de/). In addition it provides job management, the ability to list locations, mapsets and map layer the user has access to as well as the creation and deletion of mapsets. The <code>ace</code> tool is a GRASS GIS addon and must be executed in an active GRASS GIS session.</p>
+<p>All commands will be executed per default in an <strong>ephemeral</strong> database on the actinia server. Hence, generated output must be exported using augmented GRASS commands to be able to further use it.</p>
+<p>Note: The option <code>mapset=MAPSET_NAME</code> allows the execution of commands in the <strong>persistent</strong> user database. It can be used with <code>location=LOCATION_NAME</code>option.</p>
+<h3 id="preparation_1">Preparation</h3>
+<h4 id="needed-python-libraries">Needed Python libraries</h4>
+<p>In case not yet present on the system, the following Python libraries are needed:</p>
+<ul>
+<li>Linux: <code>pip3 install click requests simplejson</code></li>
+<li>Windows users (Installer: <a href="OSGeo4W">https://trac.osgeo.org/osgeo4w/</a> &gt; Advanced installation &gt; Search window):<ul>
+<li>three Python packages: python3-click, python3-requests, python3-simplejson</li>
+</ul>
+</li>
+</ul>
+<h4 id="installation-of-ace-importer-and-exporter-tools">Installation of ace, importer and exporter tools</h4>
+<p>You need to run the installer steps in a running <a href="https://grass.osgeo.org/">GRASS GIS</a> session:</p>
+<pre><code class="language-bash"># actinia importer installation
+g.extension extension=importer url=https://github.com/mundialis/importer
+
+# actinia exporter installation
+g.extension extension=exporter url=https://github.com/mundialis/exporter
+
+# ace (actinia command execution) tool
+g.extension extension=ace url=https://github.com/mundialis/ace
+</code></pre>
+<h3 id="first-steps-with-ace">First steps with ace</h3>
+<p>To try out <code>ace</code>, start GRASS GIS with the <code>nc_spm_08</code> North Carolina sample location. You can download it easily through the <code>Download</code> button in the graphical startup (recommended; see Fig. 9) or from <a href="https://grass.osgeo.org/download/sample-data/">grass.osgeo.org/download/sample-data/</a>.</p>
+<p><center>
+<a href="img/grass78_download_NC_location.png"><img src="img/grass78_download_NC_location.png" width="40%"></a><br>
+Fig. 9: Download and extraction of <code>nc_spm_08</code> North Carolina sample location ("Complete NC location")
+</center></p>
+<p>Before starting GRASS GIS with the downloaded location create a new mapset "ace" in <code>nc_spm_08</code>.</p>
+<p style="border:lightgreen solid 5px;padding:5px; width:50%">
+Note: Since we want to do cloud computing, the full location would not be needed but it is useful to have for an initial exercise in order to compare local and remote computations.
+</p>
+
+<h3 id="authentication-settings">Authentication settings</h3>
+<p>The user must setup the following environmental variables to specify the actinia server and credentials:</p>
+<pre><code class="language-bash"># set credentials and REST server URL
+export ACTINIA_USER='demouser'
+export ACTINIA_PASSWORD='gu3st!pa55w0rd'
+export ACTINIA_URL='https://actinia.mundialis.de/'
+</code></pre>
+<h3 id="available-data-on-the-mundialis-actinia-server">Available data on the mundialis actinia server</h3>
+<!-- still the case?
+Importantly, the name of the local location and mapset must correspond to that on the actinia REST server.
+-->
+
+<p>Currently available datasets are (organized by projections):</p>
+<ul>
+<li>North Carolina sample dataset (NC State-Plane metric CRS, EPSG: 3358):<ul>
+<li>base cartography (<code>nc_spm_08/PERMANENT</code>; source: https://grassbook.org/datasets/datasets-3rd-edition/)</li>
+<li>Landsat subscenes (<code>nc_spm_08/landsat</code>; source: https://grass.osgeo.org/download/sample-data/)</li>
+<li>MODIS LST time series (<code>nc_spm_08/modis_lst</code>; source: NASA)</li>
+</ul>
+</li>
+<li>Latitude-Longitude location (LatLong WGS84, EPSG:4326):<ul>
+<li>empty (<code>latlong_wgs84/PERMANENT/</code>)</li>
+<li>16-days NDVI, MOD13C1, V006, CMG 0.05 deg res. (<code>latlong_wgs84/modis_ndvi_global/</code>; source: https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod13c1_v006)</li>
+<li>LST growing degree days asia 2017 (<code>latlong_wgs84/asia_gdd_2017/</code>; source: https://www.mundialis.de/en/temperature-data/)</li>
+<li>LST tropical days asia 2017 (<code>latlong_wgs84/asia_tropical_2017/</code>)</li>
+<li>LST temperature daily asia 2017, including min, max and avg (<code>latlong_wgs84/asia_lst_daily_2017/</code>)</li>
+</ul>
+</li>
+<li>Europe (EU LAEA CRS, EPSG:3035):<ul>
+<li>EU DEM 25m V1.1 (<code>eu_laea/PERMANENT/</code>; source: https://land.copernicus.eu/imagery-in-situ/eu-dem)</li>
+<li>CORINE Landcover 2012, g100_clc12_V18_5 (<code>eu_laea/corine_2012/</code>; source: https://land.copernicus.eu/pan-european/corine-land-cover/clc-2012)</li>
+</ul>
+</li>
+<li>World Mollweide (EPSG 54009):<ul>
+<li>GHS_POP_GPW42015_GLOBE_R2015A_54009_250_v1_0 (<code>world_mollweide/pop_jrc</code>; source: https://ghsl.jrc.ec.europa.eu/ghs_pop.php)</li>
+</ul>
+</li>
+</ul>
+<p>Note that only selected datasets are available to the demo user (access is managed on a per-user base).</p>
+<h3 id="list-locations-mapsets-and-maps">List locations, mapsets and maps</h3>
+<p>In order to list the locations the user has access to, run</p>
+<pre><code class="language-bash">ace -l
+['latlong_wgs84', 'nc_spm_08', 'ECAD']
+</code></pre>
+<p>The following command lists mapsets of current location in the active GRASS GIS session ("nc_spm_08"):</p>
+<pre><code class="language-bash"># running ace in the &quot;nc_spm_08&quot; location on server:
+ace location=&quot;nc_spm_08&quot; -m
+['PERMANENT', 'landsat', 'modis_lst']
+</code></pre>
+<p>All following commands can be executed in any active GRASS GIS location, since the location name at the actinia server is explicitly provided. In case the location option is not provided, the active location will be used. The following command lists mapsets of the provided location <strong>latlong_wgs84</strong>:</p>
+<pre><code class="language-bash">ace location=&quot;latlong_wgs84&quot; -m
+['PERMANENT', 'Sentinel2A', 'globcover', 'modis_ndvi_global']
+</code></pre>
+<p>but only if the actinia user is enabled; otherwise the following message appears:</p>
+<pre><code class="language-bash">ace location=&quot;latlong_wgs84&quot; -m
+{'message': &quot;{'Status': 'error', 'Messages': 'Unauthorized access to location &quot;
+            &quot;&lt;latlong_wgs84&gt;'}&quot;}
+</code></pre>
+<p>To list all raster maps available in the specified mapset belonging to the provided location <strong>nc_spm_08</strong>, run:</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; mapset=&quot;PERMANENT&quot; -r
+['aspect',
+ 'basin_50K',
+ 'boundary_county_500m',
+ 'cfactorbare_1m',
+ 'cfactorgrow_1m',
+...
+ 'urban',
+ 'zipcodes',
+ 'zipcodes_dbl']
+</code></pre>
+<p>To list all vector maps available in the specified mapset belonging to the
+current or a provided location, run:</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; mapset=&quot;PERMANENT&quot; -v
+['P079214',
+...
+ 'boundary_county',
+ 'boundary_municp',
+ 'bridges',
+ 'busroute1',
+ 'busroute11',
+...
+ 'urbanarea',
+ 'usgsgages',
+ 'zipcodes_wake']
+</code></pre>
+<p>List all raster maps in a location/mapset different from the current GRASS GIS session location:</p>
+<pre><code class="language-bash">ace location=&quot;ECAD&quot; mapset=&quot;PERMANENT&quot; -r
+['precipitation_yearly_mm_0',
+ 'precipitation_yearly_mm_1',
+ 'precipitation_yearly_mm_10',
+ 'precipitation_yearly_mm_11',
+ 'precipitation_yearly_mm_12',
+...
+ 'temperature_mean_yearly_celsius_8',
+ 'temperature_mean_yearly_celsius_9']
+</code></pre>
+<h3 id="acessing-maps-in-a-different-mapset">Acessing maps in a different mapset</h3>
+<p>Simply use <code>@name_of_mapset</code>.</p>
+<h3 id="usage-of-external-data-sources">Usage of external data sources</h3>
+<p>A great feature is the possibility to import remote datasets on the fly. This means that a raster or vector file may be retrieved through a URL specified in a command by adding it to the input map name. There are two options:</p>
+<p>1) use of the <code>importer</code> addon (required for multispectral data; works for raster and vector data). Example:</p>
+<pre><code>...
+importer raster=ortho2010@https://apps.mundialis.de/workshops/osgeo_ireland2017/north_carolina/ortho2010_t792_subset_20cm.tif
+...
+</code></pre>
+<p>2) use of an "augmented" (GRASS GIS notion enhanced by actinia... smiley) map names by specifying the URL with the <code>@</code> operator to import a web located resource. Example:</p>
+<pre><code>...
+g.region raster=elev@https://storage.googleapis.com/graas-geodata/elev_ned_30m.tif -ap
+...
+</code></pre>
+<p>Examples follow below.</p>
+<h3 id="job-management">Job management</h3>
+<p>The <code>ace</code> tool can list jobs, choose from <code>all</code>, <code>accepted</code>, <code>running</code>,
+<code>terminated</code>, <code>finished</code>, <code>error</code>.</p>
+<p>Show finished job(s) (note: the actual response may differ):</p>
+<pre><code class="language-bash">ace list_jobs=&quot;finished&quot;
+resource_id-7a94b416-6f19-40c0-96c2-e62ce133ff89 finished 2018-12-17 11:33:58.965602
+resource_id-87965ced-7242-43d2-b6da-5ded47b10702 finished 2018-12-18 08:45:29.959495
+resource_id-b633740f-e0c5-4549-a663-9d58f9499531 finished 2018-12-18 08:52:36.669777
+resource_id-0f9d6382-b8d2-4ff8-b41f-9b16e4d6bfe2 finished 2018-12-17 11:14:00.283710
+...
+</code></pre>
+<p>Show running job(s), output only if anything is currently running:</p>
+<pre><code class="language-bash">ace list_jobs=&quot;running&quot;
+resource_id-30fff8d6-5294-4f03-a2f9-fd7c857bf153 running 2018-12-18 21:58:04.107389
+</code></pre>
+<p>Show details about a specific job:</p>
+<pre><code class="language-bash">ace info_job=&quot;resource_id-b1cf32e3-bf07-4b57-858e-5d6a9767dd63&quot;
+{'accept_datetime': '2019-09-03 00:50:11.725229',
+ 'accept_timestamp': 1567471811.7252264,
+ 'api_info': {'endpoint': 'rasterlayersresource',
+              'method': 'GET',
+              'path': '/api/v1/locations/nc_spm_08/mapsets/new_user_mapset/raster_layers',
+              'request_url': 'http://actinia.mundialis.de/api/v1/locations/nc_spm_08/mapsets/new_user_mapset/raster_layers'},
+ 'datetime': '2019-09-03 00:50:11.813833',
+ 'http_code': 200,
+ 'message': 'Processing successfully finished',
+ 'process_chain_list': [{'1': {'inputs': {'mapset': 'new_user_mapset',
+                                          'type': 'raster'},
+                               'module': 'g.list'}}],
+ 'process_log': [{'executable': 'g.list',
+                  'parameter': ['mapset=new_user_mapset', 'type=raster'],
+                  'return_code': 0,
+                  'run_time': 0.0502924919128418,
+                  'stderr': [''],
+                  'stdout': ''}],
+ 'process_results': [],
+ 'progress': {'num_of_steps': 1, 'step': 1},
+ 'resource_id': 'resource_id-b1cf32e3-bf07-4b57-858e-5d6a9767dd63',
+ 'status': 'finished',
+ 'time_delta': 0.08862900733947754,
+ 'timestamp': 1567471811.813823,
+ 'urls': {'resources': [],
+          'status': 'http://actinia.mundialis.de/api/v1/resources/demouser/resource_id-b1cf32e3-bf07-4b57-858e-5d6a9767dd63'},
+ 'user_id': 'demouser'}
+</code></pre>
+<h3 id="inspecting-the-rest-call-prior-to-submission-show-process-chain">Inspecting the REST call prior to submission: show process chain</h3>
+<p>To generate the actinia process chain JSON request simply add the -d (dry-run) flag:</p>
+<pre><code class="language-bash"># example: compute slope from an elevation map
+ace location=&quot;nc_spm_08&quot; grass_command=&quot;r.slope.aspect elevation=elevation slope=myslope&quot; -d
+</code></pre>
+<p>which will deliver the output:</p>
+<pre><code class="language-json">{
+  &quot;version&quot;: &quot;1&quot;,
+  &quot;list&quot;: [
+    {
+      &quot;module&quot;: &quot;r.slope.aspect&quot;,
+      &quot;id&quot;: &quot;r.slope.aspect_1804289383&quot;,
+      &quot;inputs&quot;: [
+        {
+          &quot;param&quot;: &quot;elevation&quot;,
+          &quot;value&quot;: &quot;elevation&quot;
+        },
+        {
+          &quot;param&quot;: &quot;format&quot;,
+          &quot;value&quot;: &quot;degrees&quot;
+        },
+        {
+          &quot;param&quot;: &quot;precision&quot;,
+          &quot;value&quot;: &quot;FCELL&quot;
+        },
+        {
+          &quot;param&quot;: &quot;zscale&quot;,
+          &quot;value&quot;: &quot;1.0&quot;
+        },
+        {
+          &quot;param&quot;: &quot;min_slope&quot;,
+          &quot;value&quot;: &quot;0.0&quot;
+        }
+      ],
+      &quot;outputs&quot;: [
+        {
+          &quot;param&quot;: &quot;slope&quot;,
+          &quot;value&quot;: &quot;myslope&quot;
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h3 id="displaying-a-map-map-rendering">Displaying a map - map rendering</h3>
+<p>It is very easy and fast to render a map (note: the "demouser" is not enabled for this):</p>
+<pre><code># check amount of pixels, just FYI
+ace location=&quot;latlong_wgs84&quot; grass_command=&quot;r.info globcover@globcover&quot;
+
+# ... 7 billion pixels.
+
+# rendering is fast thanks to the clever reading method of GRASS GIS
+ace location=&quot;latlong_wgs84&quot; render_raster=&quot;globcover@globcover&quot;
+</code></pre>
+<p><center>
+<a href="img/esa_globcover_rendered_by_ace.png"><img src="img/esa_globcover_rendered_by_ace.png" width="60%"></a><br>
+Fig. 10: ESA Globcover map rendered by actinia)
+</center></p>
+<h3 id="examples-for-ephemeral-processing">Examples for ephemeral processing</h3>
+<p>Ephemeral processing is the default processing approach of actinia. Each single command or all commands in a shell script, will be executed in an ephemeral mapset. This mapset will be removed after processing. The output of GRASS GIS modules can be marked for export, to store the computational result for download and further analysis.</p>
+<h4 id="command-line-examples">Command line examples</h4>
+<p>Running the module <code>g.list</code> in the location defined by the active GRASS GIS session in an ephemeral mapset, that has only the PERMANENT mapset in its search path:</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; grass_command=&quot;g.list raster&quot;
+
+Resource status accepted
+Polling: https://actinia.mundialis.de/api/v1/resources/demouser/resource_id-db96cd83-dbc2-40c6-b550-20e265e51c1b
+Resource poll status: finished
+Processing successfully finished
+Resource status finished
+--------------------------------------------------------------------------
+aspect
+basin_50K
+boundary_county_500m
+cfactorbare_1m
+cfactorgrow_1m
+el_D782_6m
+el_D783_6m
+el_D792_6m
+el_D793_6m
+elev_lid792_1m
+elev_ned_30m
+elev_srtm_30m
+elev_state_500m
+elevation
+elevation_shade
+facility
+geology_30m
+lakes
+landclass96
+landcover_1m
+landuse96_28m
+lsat7_2002_10
+lsat7_2002_20
+lsat7_2002_30
+lsat7_2002_40
+lsat7_2002_50
+lsat7_2002_61
+lsat7_2002_62
+lsat7_2002_70
+lsat7_2002_80
+ncmask_500m
+ortho_2001_t792_1m
+roadsmajor
+slope
+soilsID
+soils_Kfactor
+streams_derived
+towns
+urban
+zipcodes
+zipcodes_dbl
+
+{'resources': [],
+ 'status': 'https://actinia.mundialis.de/api/v1/resources/demouser/resource_id-db96cd83-dbc2-40c6-b550-20e265e51c1b'}
+</code></pre>
+<p>Running the module <code>g.region</code> in a new ephemeral location, to show the default region of a temporary mapset:</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; grass_command=&quot;g.region -p&quot;
+
+Resource status accepted
+Polling: https://actinia.mundialis.de/api/v1/resources/demouser/resource_id-b398b4dd-a47c-4443-a07d-7814cc737973
+Resource poll status: finished
+Processing successfully finished
+Resource status finished
+--------------------------------------------------------------------------
+projection: 99 (Lambert Conformal Conic)
+zone:       0
+datum:      nad83
+ellipsoid:  a=6378137 es=0.006694380022900787
+north:      320000
+south:      10000
+west:       120000
+east:       935000
+nsres:      500
+ewres:      500
+rows:       620
+cols:       1630
+cells:      1010600
+
+{'resources': [],
+ 'status': 'https://actinia.mundialis.de/api/v1/resources/demouser/resource_id-b398b4dd-a47c-4443-a07d-7814cc737973'}
+</code></pre>
+<h3 id="script-examples">Script examples</h3>
+<h4 id="example-1-computing-slope-and-aspect-and-univariate-statistics-from-an-elevation-model">Example 1: computing slope and aspect and univariate statistics from an elevation model</h4>
+<p>The following commands (to be stored in a script and executed with <code>ace</code>) will import a raster layer from an internet source as raster map <code>elev</code>, sets the computational region to the map and computes the slope. Additional information about the raster layer are requested with <code>r.info</code>.</p>
+<p>Store the following script as text file <code>ace_dtm_statistics.sh</code>:</p>
+<pre><code class="language-bash"># grass78 ~/grassdata/nc_spm_08/user1/
+# Import the web resource `elev_ned_30m.tif` and set the region to the imported map
+g.region raster=elev@https://storage.googleapis.com/graas-geodata/elev_ned_30m.tif -ap
+# Compute univariate statistics
+r.univar map=elev
+r.info elev
+# Compute the slope of the imported map and mark it for export as geotiff file
+r.slope.aspect elevation=elev slope=slope_elev+GTiff
+r.info slope_elev
+</code></pre>
+<p>Save the script in a text file, e.g. <code>/tmp/ace_dtm_statistics.sh</code>.</p>
+<p>Just for inspection, to generate the actinia process chain JSON request add the -d (dry-run) flag:</p>
+<pre><code class="language-bash">ace -d location=&quot;nc_spm_08&quot; script=&quot;/tmp/ace_dtm_statistics.sh&quot;
+</code></pre>
+<p>The output should look like this:</p>
+<pre><code class="language-json">{
+  &quot;version&quot;: &quot;1&quot;,
+  &quot;list&quot;: [
+    {
+      &quot;module&quot;: &quot;g.region&quot;,
+      &quot;id&quot;: &quot;g.region_1804289383&quot;,
+      &quot;flags&quot;: &quot;pa&quot;,
+      &quot;inputs&quot;: [
+        {
+          &quot;import_descr&quot;: {
+            &quot;source&quot;: &quot;https://storage.googleapis.com/graas-geodata/elev_ned_30m.tif&quot;,
+            &quot;type&quot;: &quot;raster&quot;
+          },
+          &quot;param&quot;: &quot;raster&quot;, &quot;value&quot;: &quot;elev&quot;
+        }
+      ]
+    },
+    {
+      &quot;module&quot;: &quot;r.univar&quot;,
+      &quot;id&quot;: &quot;r.univar_1804289383&quot;,
+      &quot;inputs&quot;: [
+        {&quot;param&quot;: &quot;map&quot;, &quot;value&quot;: &quot;elev&quot;},
+        {&quot;param&quot;: &quot;percentile&quot;, &quot;value&quot;: &quot;90&quot;},
+        {&quot;param&quot;: &quot;separator&quot;, &quot;value&quot;: &quot;pipe&quot;}
+      ]
+    },
+    {
+      &quot;module&quot;: &quot;r.info&quot;,
+      &quot;id&quot;: &quot;r.info_1804289383&quot;,
+      &quot;inputs&quot;: [{&quot;param&quot;: &quot;map&quot;, &quot;value&quot;: &quot;elev&quot;}]
+    },
+    {
+      &quot;module&quot;: &quot;r.slope.aspect&quot;,
+      &quot;id&quot;: &quot;r.slope.aspect_1804289383&quot;,
+      &quot;inputs&quot;: [
+        {&quot;param&quot;: &quot;elevation&quot;, &quot;value&quot;: &quot;elev&quot;},
+        {&quot;param&quot;: &quot;format&quot;, &quot;value&quot;: &quot;degrees&quot;},
+        {&quot;param&quot;: &quot;precision&quot;, &quot;value&quot;: &quot;FCELL&quot;},
+        {&quot;param&quot;: &quot;zscale&quot;, &quot;value&quot;: &quot;1.0&quot;},
+        {&quot;param&quot;: &quot;min_slope&quot;, &quot;value&quot;: &quot;0.0&quot;}
+      ],
+      &quot;outputs&quot;: [
+        {
+          &quot;export&quot;: {&quot;format&quot;: &quot;GTiff&quot;, &quot;type&quot;: &quot;raster&quot;},
+          &quot;param&quot;: &quot;slope&quot;, &quot;value&quot;: &quot;slope_elev&quot;
+        }
+      ]
+    },
+    {
+      &quot;module&quot;: &quot;r.info&quot;,
+      &quot;id&quot;: &quot;r.info_1804289383&quot;,
+      &quot;inputs&quot;: [{&quot;param&quot;: &quot;map&quot;, &quot;value&quot;: &quot;slope_elev&quot;}]
+    }
+  ]
+}
+</code></pre>
+<p>To eventually execute the saved script on the actinia server (it will internally convert the script to JSON and send this as a payload to the server), run:</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; script=&quot;/tmp/ace_dtm_statistics.sh&quot;
+</code></pre>
+<p>The resulting data are provided as REST resources for download.</p>
+<h4 id="example-2-orthophoto-image-segmentation-with-export">Example 2: Orthophoto image segmentation with export</h4>
+<p>Store the following script as text file <code>/tmp/ace_segmentation.sh</code>:</p>
+<pre><code class="language-bash"># grass78 ~/grassdata/nc_spm_08/user1/
+# Import the web resource and set the region to the imported map
+# we apply a trick for the import of multi-band GeoTIFFs:
+# install with: g.extension importer
+importer raster=ortho2010@https://apps.mundialis.de/workshops/osgeo_ireland2017/north_carolina/ortho2010_t792_subset_20cm.tif
+# The importer has created three new raster maps, one for each band in the geotiff file
+# stored them in an image group
+r.info map=ortho2010.1
+r.info map=ortho2010.2
+r.info map=ortho2010.3
+# Set the region and resolution
+g.region raster=ortho2010.1 res=1 -p
+# Note: the RGB bands are organized as a group
+i.segment group=ortho2010 threshold=0.25 output=ortho2010_segment_25+GTiff goodness=ortho2010_seg_25_fit+GTiff
+# Finally vectorize segments with r.to.vect and export as a GeoJSON file
+r.to.vect input=ortho2010_segment_25 type=area output=ortho2010_segment_25+GeoJSON
+</code></pre>
+<p>Run the script saved in a text file as</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; script=&quot;/tmp/ace_segmentation.sh&quot;
+</code></pre>
+<p>The results are provided as REST resources for download or consumtion in other systems.</p>
+<h3 id="examples-for-persistent-processing">Examples for persistent processing</h3>
+<p>GRASS GIS commands can be executed in a user specific persistent database. The user must create a mapset in an existing location. This mapsets can be accessed via <code>ace</code>. All processing results of commands run in this mapset, will be stored persistently. Be aware that the processing will be performed in an ephemeral database that will be moved to the persistent storage using the correct name after processing.</p>
+<p>To create a new mapset in the <strong>nc_spm_08</strong> location with the name <strong>test_mapset</strong> the following command must be executed (note: the "demouser" is not enabled for this):</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; create_mapset=&quot;test_mapset&quot;
+</code></pre>
+<p>Run the commands from the statistic script in the new persistent mapset:</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; mapset=&quot;test_mapset&quot; script=&quot;/path/to/ace_dtm_statistics.sh&quot;
+</code></pre>
+<p>Show all raster maps that have been created with the script in test_mapset:</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; mapset=&quot;test_mapset&quot; grass_commmand=&quot;g.list type=raster mapset=test_mapset&quot;
+</code></pre>
+<p>Show information about raster map elev and slope_elev:</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; mapset=&quot;test_mapset&quot; grass_commmand=&quot;r.info elev@test_mapset&quot;
+ace location=&quot;nc_spm_08&quot; mapset=&quot;test_mapset&quot; grass_commmand=&quot;r.info slope_elev@test_mapset&quot;
+</code></pre>
+<p>Delete the test_mapset:</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; delete_mapset=&quot;test_mapset&quot;
+</code></pre>
+<p>If the active GRASS GIS session has identical location/mapset settings, then an alias can be used to avoid the persistent option in each single command call:</p>
+<pre><code class="language-bash">alias acp=&quot;ace mapset=`g.mapset -p`&quot;
+</code></pre>
+<p>We assume that in the active GRASS GIS session the current location is <strong>nc_spm_08</strong> and the current mapset is <strong>test_mapset</strong>. Then the commands from above can be executed in the following way:</p>
+<pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; create_mapset=&quot;test_mapset&quot;
+acp location=&quot;nc_spm_08&quot; script=&quot;/path/to/ace_dtm_statistics.sh&quot;
+acp location=&quot;nc_spm_08&quot; grass_command=&quot;g.list type=raster mapset=test_mapset&quot;
+acp location=&quot;nc_spm_08&quot; grass_command=&quot;r.info elev@test_mapset&quot;
+acp location=&quot;nc_spm_08&quot; grass_command=&quot;r.info slope_elev@test_mapset&quot;
+</code></pre>
+<h3 id="super-admin-tasks">Super admin tasks</h3>
+<p>(note: the "demouser" is not enabled for this)</p>
+<h4 id="creation-of-new-locations">Creation of new locations</h4>
+<pre><code class="language-bash"># create new location
+ace create_location=&quot;mylatlon 4326&quot;
+# create new mapset within location
+ace location=&quot;mylatlon&quot; create_mapset=&quot;user1&quot;
+</code></pre>
+<h4 id="installing-of-grass-gis-addons-extensions">Installing of GRASS GIS addons (extensions)</h4>
+<p>(requires elevated user privileges)</p>
+<pre><code class="language-bash"># list existing addons, see also
+# https://grass.osgeo.org/grass7/manuals/addons/
+ace location=&quot;latlong_wgs84&quot; grass_command=&quot;g.extension -l&quot;
+
+# install machine learning addon r.learn.ml2
+ace location=&quot;latlong_wgs84&quot; grass_command=&quot;g.extension extension=\&quot;r.learn.ml2\&quot;&quot;
+</code></pre>
+<h3 id="suggestions-for-computations-using-data-in-the-nc_spm_08-location">Suggestions for computations using data in the <code>nc_spm_08</code> location</h3>
+<ul>
+<li>compute NDVI from a Landsat scene (using <code>i.vi</code>)</li>
+<li>slope and aspect from a DEM (there are several;  using <code>r.slope.aspect</code>)</li>
+<li>flow accumulation with <code>r.watershed</code> from a DEM</li>
+<li>buffer around hospitals  (using <code>v.buffer</code>)</li>
+<li>advanced: network allocation with hospitals and streets_wake (using <code>v.net.alloc</code>)</li>
+<li>generalizing vector polygons with GRASS GIS' topology engine (using <code>v.generalize</code>)</li>
+</ul>
+<h3 id="further-examples-incl-spatio-temporal-sampling">Further examples incl. Spatio-Temporal sampling</h3>
+<p>See: <a href="https://github.com/mundialis/actinia_core/blob/master/scripts/curl_commands.sh">https://github.com/mundialis/actinia_core/blob/master/scripts/curl_commands.sh</a></p>
+<h2 id="own-exercises-in-actinia">Own exercises in actinia</h2>
+<!--
+(duration: 40 min)
+-->
+
+<p>Meanwhile you have seen a lot of material. Time to try out some further exercises...</p>
+<h3 id="exercise-population-at-risk-near-coastal-areas">EXERCISE: "Population at risk near coastal areas"</h3>
+<ul>
+<li>needed geodata:<ul>
+<li>SRTM 30m (already available in actinia - find out the location yourself)</li>
+<li>Global Population 2015 (already available in actinia - find out the location yourself)</li>
+<li>vector shorelines (get from <a href="http://www.naturalearthdata.com/downloads/">naturalearthdata</a>)</li>
+</ul>
+</li>
+<li>fetch metadata with actinia interface</li>
+<li>before doing any computations: what's important about projections?</li>
+<li>proposed workflow:<ul>
+<li>set computational region to a small subregion and constrain the pixel number through defined user settings</li>
+<li>buffer SRTM land areas by 5000 m inwards</li>
+<li>zonal statistics with population map</li>
+</ul>
+</li>
+</ul>
+<h3 id="exercise-property-risks-from-trees">EXERCISE: "Property risks from trees"</h3>
+<p>(draft idea only, submit your suggestion to trainer how to solve this task)</p>
+<ul>
+<li>define your region of interest</li>
+<li>needed geodata:<ul>
+<li>building footprints<ul>
+<li>download from OSM (via <a href="https://overpass-turbo.eu/">https://overpass-turbo.eu/</a> | Wizard &gt; building &gt; ok &gt; Export &gt; Geojson)</li>
+<li>these data are now on your machine and not on the actinia server</li>
+<li>use "ace importer" or cURL to upload</li>
+</ul>
+</li>
+<li>select Sentinel-2 scene</li>
+</ul>
+</li>
+<li>proposed workflow:<ul>
+<li>actinia "ace" importer for building footprint upload</li>
+<li><code>v.buffer</code> of 10m and 30m around footprints</li>
+<li>select S2 scene, compute NDVI with <code>i.vi</code></li>
+<li>filter NDVI threshold &gt; 0.6 (map algebra) to get the tree pixels - more exiting would be a ML approach (with previously prepared training data ;-)) (<code>r.learn.ml</code> offers RF and SVM)</li>
+<li>on binary tree map (which corresponds to risk exposure)</li>
+<li>count number of tree pixels in 5x5 moving window (<code>r.neighbors</code> with method "count")</li>
+<li>compute property risk statistics using buffers and tree count map and upload to buffered building map (<code>v.rast.stats</code>, method=maximum)</li>
+<li>export of results through REST resources</li>
+</ul>
+</li>
+</ul>
+<h2 id="conclusions-and-future">Conclusions and future</h2>
+<!--
+(duration: 15 min incl discussions)
+-->
+
+<ul>
+<li>Discussion!</li>
+<li>Where is the code and how to contribute: find it on GitHub<ul>
+<li><a href="https://github.com/mundialis/actinia_core/">https://github.com/mundialis/actinia_core/</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<h3 id="what-does-actinia-mean">What does actinia mean?</h3>
+<p>Actinia is a beautiful sea creature and a genus of sea anemones in the family Actiniidae (see <a href="https://en.wikipedia.org/wiki/Actinia">wikipedia</a>). While the sea creature is filtering the sea water, the <a href="https://actinia.mundialis.de/">actinia geoprocessing platform</a> filters in large data oceans.</p>
+<h3 id="how-to-contribute-to-actinia">How to contribute to actinia</h3>
+<p>Please see <a href="https://github.com/mundialis/actinia_core/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a></p>
+<h3 id="openeo-resources">openEO resources</h3>
+<ul>
+<li>OpenEO Web Editor: <a href="https://open-eo.github.io/openeo-web-editor/demo/">https://open-eo.github.io/openeo-web-editor/demo/</a><ul>
+<li>Server: <a href="https://openeo.mundialis.de">https://openeo.mundialis.de</a></li>
+<li>user, password: upon request</li>
+</ul>
+</li>
+</ul>
+<h3 id="rest-introduction">REST introduction</h3>
+<ul>
+<li>What is REST - A Simple Explanation for Beginners, <a href="https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f">Part 1: Introduction</a></li>
+<li>What is REST - A Simple Explanation for Beginners, <a href="https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-2-rest-constraints-129a4b69a582">Part 2: REST Constraints</a></li>
+</ul>
+<h3 id="using-command-line-on-windows">Using command line on Windows</h3>
+<ul>
+<li><a href="https://gitforwindows.org/">Git for Windows</a> offers the "git bash" and common tools</li>
+<li><a href="https://www.msys2.org/">MSYS2</a> offers a bash and many tools along with <code>pacman</code> to install further packages</li>
+</ul>
+<h2 id="references">References</h2>
+<p>[1] Zell Liew, 2018: Understanding And Using REST APIs, <a href="https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/">https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/</a></p>
+<p>[2] Planet 2019: Developer resource center, <a href="https://developers.planet.com/planetschool/rest-apis/">https://developers.planet.com/planetschool/rest-apis/</a></p>
+<p>[3] <a href="https://redocly.github.io/redoc/?url=https://actinia.mundialis.de/api/v1/swagger.json">actinia API reference</a> documentation</p>
+<p>[4] actinia article: <a href="https://doi.org/10.5281/zenodo.2631917"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.2631917.svg" /></a></p>
+<h2 id="acknowledgement">Acknowledgement</h2>
+<p>The review by <a href="https://veroandreo.gitlab.io/">Vero Andreo</a> is greatly appreciated.</p>
+<hr />
+<ul>
+<li>Repository of this material on <a href="https://gitlab.com/neteler/actinia-introduction/">gitlab</a></li>
+</ul>
+<p><em><a href="about/">About</a> | <a href="https://about.gitlab.com/privacy/">Privacy</a></em></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="about/" class="btn btn-neutral float-right" title="About the trainer">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.2.2
+Build Date UTC : 2021-09-23 15:35:23.050470+00:00
+-->

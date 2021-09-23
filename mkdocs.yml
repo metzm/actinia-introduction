@@ -1,7 +1,0 @@
-site_name: A gentle introduction to actinia
-site_url:  https://pages.gitlab.io/actinia-introduction
-#site_url: https://namespace.gitlab.io
-docs_dir:  docs
-theme:     readthedocs
-# https://github.com/mkdocs/mkdocs/issues/991
-use_directory_urls: true
