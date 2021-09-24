@@ -175,8 +175,8 @@
 <li>Try the same request again:</li>
 </ul>
 <p><center>
-<a href="img/actinia_restman01.png"><img src="img/actinia_restman01.png" width="60%"></a><br>
-<a href="img/actinia_restman02.png"><img src="img/actinia_restman02.png" width="60%"></a><br>
+<a href="../img/actinia_restman01.png"><img src="../img/actinia_restman01.png" width="60%"></a><br>
+<a href="../img/actinia_restman02.png"><img src="../img/actinia_restman02.png" width="60%"></a><br>
 Fig. 4: Using RESTman
 </center></p>
 <p>For a <code>curl</code> example, see below ("<a href="index.html#rest-actinia-examples-with-curl">REST actinia examples with curl</a>").</p>
@@ -236,14 +236,14 @@ Check out some of the various sections in the <a href="https://redocly.github.io
 <li>To see a simple <strong>list of endpoints</strong> (and more), have a look at the "paths" section in the <a href="https://actinia.mundialis.de/api/v1/swagger.json">API JSON</a>. If the formatting looks "ugly", get the <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa">JSON Formatter</a> extension.</li>
 </ul>
 <p><center>
-<a href="img/actinia_swagger_paths.png"><img src="img/actinia_swagger_paths.png" width="60%"></a><br>
+<a href="../img/actinia_swagger_paths.png"><img src="../img/actinia_swagger_paths.png" width="60%"></a><br>
 Fig. 5: actinia list of endpoints (in the "paths" section)
 </center></p>
 <ul>
 <li><strong>List of supported processes</strong> (&gt; 500): see <a href="https://actinia.mundialis.de/api/v1/modules">API modules</a> (note: the process chain templates are at bottom, category "actinia-module")</li>
 </ul>
 <p><center>
-<a href="img/actinia_modules.png"><img src="img/actinia_modules.png" width="60%"></a><br>
+<a href="../img/actinia_modules.png"><img src="../img/actinia_modules.png" width="60%"></a><br>
 Fig. 6: actinia list of GRASS GIS processes (&gt; 500)
 </center></p>
 <p>List of endpoints shown on command line:</p>
@@ -323,14 +323,14 @@ curl ${AUTH} -X GET &quot;${actinia}/api/v1/users/demouser&quot;
 curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets&quot;
 </code></pre>
 <p><center>
-<a href="img/curl_output_std.png"><img src="img/curl_output_std.png" width="60%"></a><br>
+<a href="../img/curl_output_std.png"><img src="../img/curl_output_std.png" width="60%"></a><br>
 </center></p>
 <p>Note the style difference of output:</p>
 <pre><code class="language-bash"># show available mapsets of a specific location
 curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets&quot; | jqs
 </code></pre>
 <p><center>
-<a href="img/curl_output_jq.png"><img src="img/curl_output_jq.png" width="60%"></a><br>
+<a href="../img/curl_output_jq.png"><img src="../img/curl_output_jq.png" width="60%"></a><br>
 </center></p>
 <h4 id="list-map-layers-and-their-metadata">List map layers and their metadata</h4>
 <p>Eventually, digging more for content in "location" and "mapsets", we can look at the datasets stored therein:</p>
@@ -389,7 +389,7 @@ curl ${AUTH} -X POST -H &quot;content-type: application/json&quot; &quot;${actin
 <li>add the JSON in the body section in RAW format</li>
 </ul>
 <p><center>
-<a href="img/actinia_restman_post.png"><img src="img/actinia_restman_post.png" width="60%"></a><br>
+<a href="../img/actinia_restman_post.png"><img src="../img/actinia_restman_post.png" width="60%"></a><br>
 Fig. 7 RESTman POST request example (source: Luca Delucchi)
 </center></p>
 <h4 id="sending-json-payload-as-a-file">Sending JSON payload as a file</h4>
@@ -450,7 +450,7 @@ Note that the download of Web resources provided by actinia requires authenticat
 </code></pre>
 <p>Being an asynchronous process, the result is not offered directly but at the bottom of the JSON output (in the terminal) a resource ID (red box) and a resource URI is shown:</p>
 <p><center>
-<a href="img/curl_resource_id.png"><img src="img/curl_resource_id.png" width="60%"></a><br>
+<a href="../img/curl_resource_id.png"><img src="../img/curl_resource_id.png" width="60%"></a><br>
 </center></p>
 <p>Use this URI for retrieving the process status, e.g. using your browser (<code>F5</code> to reload page until job is ready).
 Once the job has been completed ("Processing successfully finished"), three Web resources (here: COG - Cloud Optimized GeoTIFF) are shown at the bottom of the JSON output:</p>
@@ -474,7 +474,7 @@ curl ${AUTH} -X GET &quot;https://actinia.mundialis.de/api/v1/resources/demouser
 </code></pre>
 <p>The resulting files can now be downloaded (they'll remain for 24 hs on the server).</p>
 <p><center>
-<a href="img/qgis_actinia_data_viz.png"><img src="img/qgis_actinia_data_viz.png" width="60%"></a><br>
+<a href="../img/qgis_actinia_data_viz.png"><img src="../img/qgis_actinia_data_viz.png" width="60%"></a><br>
 Fig. 8: actinia output shown in QGIS (aspect map)
 </center></p>
               

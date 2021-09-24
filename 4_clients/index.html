@@ -270,7 +270,7 @@ r.to.vect input=ortho2010_segment_25 type=area output=ortho2010_segment_25+GeoJS
 <pre><code class="language-bash">ace location=&quot;nc_spm_08&quot; script=&quot;/tmp/ace_segmentation.sh&quot;
 </code></pre>
 <p>The results are provided as REST resources for download or consumtion in other systems.</p>
-<p><a href="img/ortho2010.jpeg"><img src="img/ortho2010.jpeg" width="100%"></a><br>
+<p><a href="../img/ortho2010.jpeg"><img src="../img/ortho2010.jpeg" width="100%"></a><br>
 Fig. 9: actinia output maps. From left to right: "ortho2010_segment_25.tif", "ortho2010_seg_25_fit.tif", "ortho2010_segment_25.geojson"</p>
 <p style="border:lightgreen solid 5px;padding:5px; width:80%">
 If you want to try out more things with ace, take a look at a <a href="https://neteler.gitlab.io/actinia-introduction/#preparation_1">different actinia workshop</a> where a more in-depth look is taken on this topic.
@@ -288,33 +288,33 @@ to start processes. For ephemeral processing the plugin downloads the results di
 <p>In the actinia Connector plugin you can create a new project or load an old one.</p>
 <p>When a new project is created, a new project file is created. The user can set a project name and a data directory, where data created by the plugin are saved.
 Additional the actinia settings have to be set. These settings are the base url, user and password. As simple example you can select the https://actinia.mundialis.de/ with the demouser and password gu3st!pa55w0rd. But you can also use another actinia server or one you have set up yourself.</p>
-<p><a href="img/ac_project_setup.jpg"><img src="img/ac_project_setup.jpg" width="60%"></a><br>
+<p><a href="../img/ac_project_setup.jpg"><img src="../img/ac_project_setup.jpg" width="60%"></a><br>
 Fig. 10: actinia connector, project setup</p>
 <h3 id="location-management">Location management</h3>
 <p>In the location management screen you can query all locations available for you with the “Get locations” button and then select a location and query its information with the “Get selected location info (region and projection)” button or use this location in another tab for another functionality.</p>
-<p><a href="img/ac_01_location_management.jpg"><img src="img/ac_01_location_management.jpg" width="60%"></a><br>
+<p><a href="../img/ac_01_location_management.jpg"><img src="../img/ac_01_location_management.jpg" width="60%"></a><br>
 Fig. 11: actinia connector, location management</p>
 <h3 id="mapset-management">Mapset management</h3>
 <p>For mapset management a selected location (in the location tab) is required. From this location all mapsets available for the user can be queried with the “Get mapsets” button.</p>
 <p>When selecting one of these mapsets, information can be queried with the “Get selected mapset info (region and projection)” button or the layer in this mapset can be used in the raster maps or vector maps tab.</p>
-<p><a href="img/ac_02_mapset_management.jpg"><img src="img/ac_02_mapset_management.jpg" width="60%"></a><br>
+<p><a href="../img/ac_02_mapset_management.jpg"><img src="../img/ac_02_mapset_management.jpg" width="60%"></a><br>
 Fig. 12: actinia connector, mapset management</p>
 <h3 id="raster-management">Raster management</h3>
 <p>For raster management, both a location and a mapset must be selected (these are displayed again at the top). With the “Get raster maps” button all raster layers can be listed.</p>
 <p>If you select one of them, you can query the map information for it using the “Get selected raster map info” or import the raster map into QGIS.
 There are two ways to import a raster layer into QGIS. One is to simply use the button “Import selected raster map into QGIS” to import the entire raster map. There is also another possibility to select a layer in QGIS and then additionally select the radio button “by selected layer extent” to limit the extent of the raster map to be imported to the extent of the selected raster map. This extent can also be increased by a number of cells. However, care must be taken that the two maps overlap, otherwise an empty map will be imported into QGIS.</p>
-<p><a href="img/ac_03_raster_management.jpg"><img src="img/ac_03_raster_management.jpg" width="60%"></a><br>
+<p><a href="../img/ac_03_raster_management.jpg"><img src="../img/ac_03_raster_management.jpg" width="60%"></a><br>
 Fig. 13: actinia connector, raster management</p>
 <h3 id="vector-management">Vector management</h3>
 <p>For vector management, both a location and a mapset must be selected (these are displayed again at the top). With the “Get vector maps” button all vector layers can be listed.</p>
 <p>If you select one of them, you can query the map information for it using the “Get selected vector map info” or import the vector map into QGIS with the “Import selected vector map into QGIS” button.</p>
-<p><a href="img/ac_04_vector_management.jpg"><img src="img/ac_04_vector_management.jpg" width="60%"></a><br>
+<p><a href="../img/ac_04_vector_management.jpg"><img src="../img/ac_04_vector_management.jpg" width="60%"></a><br>
 Fig. 14: actinia connector, vector management</p>
 <h3 id="persistent-and-ephemeral-processing">Persistent and Ephemeral processing</h3>
 <p>For processing, a location must be selected (in the location tab). Via “Load process chain” a process chain can be uploaded as a file. This is then displayed on the right.</p>
 <p>Before the processing can be started, the process type must also be selected. The process can be started as ephermeral or persistent process.
 If persistent processing is used, a mapset name must be entered in the empty text field. This can be a simple text e.g. “mapset_XY”. The mapset with this name is then created during the processing, and can be loaded afterwards via the tab mapsets.</p>
-<p><a href="img/ac_05_processing.jpg"><img src="img/ac_05_processing.jpg" width="60%"></a><br>
+<p><a href="../img/ac_05_processing.jpg"><img src="../img/ac_05_processing.jpg" width="60%"></a><br>
 Fig. 15: actinia connector, persistent and ephemeral processing</p>
               
             </div>
