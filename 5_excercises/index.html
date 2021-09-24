@@ -66,9 +66,9 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Own exercises in actinia</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#exercise-population-at-risk-near-coastal-areas">EXERCISE: "Population at risk near coastal areas"</a>
+    <li class="toctree-l2"><a class="reference internal" href="#small-exercises">SMALL EXERCISES</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#exercise-property-risks-from-trees">EXERCISE: "Property risks from trees"</a>
+    <li class="toctree-l2"><a class="reference internal" href="#exercise-population-at-risk-near-coastal-areas">EXERCISE: "Population at risk near coastal areas"</a>
     </li>
     </ul>
                     </li>
@@ -120,49 +120,72 @@
 -->
 
 <p>Meanwhile you have seen a lot of material. Time to try out some further exercises...</p>
-<h2 id="exercise-population-at-risk-near-coastal-areas">EXERCISE: "Population at risk near coastal areas"</h2>
+<h3 id="small-exercises">SMALL EXERCISES</h3>
+<ol>
+<li>What is the altitude of the highest point in North Carolina? Check it with actinia.</li>
+<li>Find the correct raster in the North Carolina location and PERMANENT mapset.</li>
+<li>Find the relevant raster layer by rendering it</li>
+<li>
+<p>Print the information and get altitude of the highest point</p>
+</li>
+<li>
+<p>Find the zipcode in Wake county with the most hospitals</p>
+</li>
+<li>Find the relevant vector layers</li>
+<li>Check the zipcode vector layer for the relevant column to get the zipcode</li>
+<li>Create a process chain as a .json file to ask for the number of hospitals in the zipcodes: Use the GRASS GIS modules <code>g.copy</code> (because you are not allowed to change data from an other mapset), <code>v.vect.stats</code> and <code>v.db.select</code></li>
+<li>
+<p>Post the created process chain to <code>https://actinia.mundialis.de/api/v1/locations/nc_spm_08/processing_async</code> for ephemeral processing</p>
+</li>
+<li>
+<p>Export the water bodies from the available Landsat imagery of North Carolina</p>
+</li>
+<li>Create a process chain as a .json file<ul>
+<li>Remember to set the computational region</li>
+<li>Compute the NDWI (Normalized difference water index); use <code>r.mapcalc</code> or <code>i.vi</code></li>
+<li>Filter water bodies by a threshold of e.g. 0.35 using <code>r.mapcalc</code></li>
+</ul>
+</li>
+<li>Either export the water bodies (use the <code>exporter</code> with the ephemeral processing) or render the maps of NDWI and water bodies with a nice color (use <code>r.colors</code> and persistent processing in your own mapset)</li>
+</ol>
+<h3 id="exercise-population-at-risk-near-coastal-areas">EXERCISE: "Population at risk near coastal areas"</h3>
 <ul>
 <li>needed geodata:<ul>
-<li>SRTM 30m (already available in actinia - find out the location yourself)</li>
-<li>Global Population 2015 (already available in actinia - find out the location yourself)</li>
-<li>vector shorelines (get from <a href="http://www.naturalearthdata.com/downloads/">naturalearthdata</a>)</li>
+<li>Worldwide SRTM 30m (already available in actinia as <code>srtmgl1_v003_30m</code> - find out the location yourself)</li>
+<li>South America Population 2015 (already available in actinia as <code>worldpop_2015_1km_aggregated_UNadj</code>- find out the location yourself)</li>
+<li>raster shorelines (already available in actinia as <code>ne_1000m_coastlines</code>- find out the location yourself)</li>
 </ul>
 </li>
-<li>fetch metadata with actinia interface</li>
-<li>before doing any computations: what's important about projections?</li>
+<li>fetch metadata with actinia interface and render input data</li>
 <li>proposed workflow:<ul>
-<li>set computational region to a small subregion and constrain the pixel number through defined user settings</li>
-<li>buffer SRTM land areas by 5000 m inwards</li>
-<li>zonal statistics with population map</li>
+<li>set computational region to a small subregion (hint: <code>align</code> the region resolution to the population raster) and check the pixel number against user constraints</li>
+<li>buffer the coastlines by 5000 m and set a mask to the result</li>
+<li>Extract only the peopulation below 10 m</li>
+<li>Calculate the statistic to get the population at risk near coastal areas</li>
 </ul>
 </li>
+<li>Hints for example GRASS modules to use in process chain: <code>g.region</code>, <code>r.buffer</code>, <code>r.mapcalc</code>, <code>r.mask</code>, <code>r.univar</code></li>
 </ul>
-<h2 id="exercise-property-risks-from-trees">EXERCISE: "Property risks from trees"</h2>
-<p>(draft idea only, submit your suggestion to trainer how to solve this task)</p>
-<ul>
-<li>define your region of interest</li>
-<li>needed geodata:<ul>
-<li>building footprints<ul>
-<li>download from OSM (via <a href="https://overpass-turbo.eu/">https://overpass-turbo.eu/</a> | Wizard &gt; building &gt; ok &gt; Export &gt; Geojson)</li>
-<li>these data are now on your machine and not on the actinia server</li>
-<li>use "ace importer" or cURL to upload</li>
-</ul>
-</li>
-<li>select Sentinel-2 scene</li>
-</ul>
-</li>
-<li>proposed workflow:<ul>
-<li>actinia "ace" importer for building footprint upload</li>
-<li><code>v.buffer</code> of 10m and 30m around footprints</li>
-<li>select S2 scene, compute NDVI with <code>i.vi</code></li>
-<li>filter NDVI threshold &gt; 0.6 (map algebra) to get the tree pixels - more exiting would be a ML approach (with previously prepared training data ;-)) (<code>r.learn.ml</code> offers RF and SVM)</li>
-<li>on binary tree map (which corresponds to risk exposure)</li>
-<li>count number of tree pixels in 5x5 moving window (<code>r.neighbors</code> with method "count")</li>
-<li>compute property risk statistics using buffers and tree count map and upload to buffered building map (<code>v.rast.stats</code>, method=maximum)</li>
-<li>export of results through REST resources</li>
-</ul>
-</li>
-</ul>
+<!-- ### EXERCISE: "Property risks from trees"
+
+(draft idea only, submit your suggestion to trainer how to solve this task)
+
+* define your region of interest
+* needed geodata:
+    * building footprints
+        * download from OSM (via [https://overpass-turbo.eu/](https://overpass-turbo.eu/) | Wizard > building > ok > Export > Geojson)
+        * these data are now on your machine and not on the actinia server
+        * use "ace importer" or cURL to upload
+    * select Sentinel-2 scene
+* proposed workflow:
+    * actinia "ace" importer for building footprint upload
+    * `v.buffer` of 10m and 30m around footprints
+    * select S2 scene, compute NDVI with `i.vi`
+    * filter NDVI threshold > 0.6 (map algebra) to get the tree pixels - more exiting would be a ML approach (with previously prepared training data ;-)) (`r.learn.ml` offers RF and SVM)
+    * on binary tree map (which corresponds to risk exposure)
+    * count number of tree pixels in 5x5 moving window (`r.neighbors` with method "count")
+    * compute property risk statistics using buffers and tree count map and upload to buffered building map (`v.rast.stats`, method=maximum)
+    * export of results through REST resources -->
               
             </div>
           </div>
