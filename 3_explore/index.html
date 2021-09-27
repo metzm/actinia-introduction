@@ -327,7 +327,7 @@ curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets&quot;
 </center></p>
 <p>Note the style difference of output:</p>
 <pre><code class="language-bash"># show available mapsets of a specific location
-curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets&quot; | jqs
+curl ${AUTH} -X GET &quot;${actinia}/api/v1/locations/nc_spm_08/mapsets&quot; | jq
 </code></pre>
 <p><center>
 <a href="../img/curl_output_jq.png"><img src="../img/curl_output_jq.png" width="60%"></a><br>
