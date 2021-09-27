@@ -66,9 +66,13 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Own exercises in actinia</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#small-exercises">SMALL EXERCISES</a>
+    <li class="toctree-l2"><a class="reference internal" href="#1-what-is-the-altitude-of-the-highest-point-in-north-carolina-check-it-with-actinia">1. What is the altitude of the highest point in North Carolina? Check it with actinia.</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#exercise-population-at-risk-near-coastal-areas">EXERCISE: "Population at risk near coastal areas"</a>
+    <li class="toctree-l2"><a class="reference internal" href="#2-find-the-zipcode-in-wake-county-with-the-most-hospitals">2. Find the zipcode in Wake county with the most hospitals</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-export-the-water-bodies-from-the-available-landsat-imagery-of-north-carolina">3. Export the water bodies from the available Landsat imagery of North Carolina</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-population-at-risk-near-coastal-areas">4. Population at risk near coastal areas</a>
     </li>
     </ul>
                     </li>
@@ -120,26 +124,21 @@
 -->
 
 <p>Meanwhile you have seen a lot of material. Time to try out some further exercises...</p>
-<h3 id="small-exercises">SMALL EXERCISES</h3>
-<ol>
-<li>What is the altitude of the highest point in North Carolina? Check it with actinia.</li>
+<h3 id="1-what-is-the-altitude-of-the-highest-point-in-north-carolina-check-it-with-actinia">1. What is the altitude of the highest point in North Carolina? Check it with actinia.</h3>
+<ul>
 <li>Find the correct raster in the North Carolina location and PERMANENT mapset.</li>
 <li>Find the relevant raster layer by rendering it</li>
-<li>
-<p>Print the information and get altitude of the highest point</p>
-</li>
-<li>
-<p>Find the zipcode in Wake county with the most hospitals</p>
-</li>
+<li>Print the information and get altitude of the highest point</li>
+</ul>
+<h3 id="2-find-the-zipcode-in-wake-county-with-the-most-hospitals">2. Find the zipcode in Wake county with the most hospitals</h3>
+<ul>
 <li>Find the relevant vector layers</li>
 <li>Check the zipcode vector layer for the relevant column to get the zipcode</li>
 <li>Create a process chain as a .json file to ask for the number of hospitals in the zipcodes: Use the GRASS GIS modules <code>g.copy</code> (because you are not allowed to change data from an other mapset), <code>v.vect.stats</code> and <code>v.db.select</code></li>
-<li>
-<p>Post the created process chain to <code>https://actinia.mundialis.de/api/v1/locations/nc_spm_08/processing_async</code> for ephemeral processing</p>
-</li>
-<li>
-<p>Export the water bodies from the available Landsat imagery of North Carolina</p>
-</li>
+<li>Post the created process chain to <code>https://actinia.mundialis.de/api/v1/locations/nc_spm_08/processing_async</code> for ephemeral processing</li>
+</ul>
+<h3 id="3-export-the-water-bodies-from-the-available-landsat-imagery-of-north-carolina">3. Export the water bodies from the available Landsat imagery of North Carolina</h3>
+<ul>
 <li>Create a process chain as a .json file<ul>
 <li>Remember to set the computational region</li>
 <li>Compute the NDWI (Normalized difference water index); use <code>r.mapcalc</code> or <code>i.vi</code></li>
@@ -147,8 +146,8 @@
 </ul>
 </li>
 <li>Either export the water bodies (use the <code>exporter</code> with the ephemeral processing) or render the maps of NDWI and water bodies with a nice color (use <code>r.colors</code> and persistent processing in your own mapset)</li>
-</ol>
-<h3 id="exercise-population-at-risk-near-coastal-areas">EXERCISE: "Population at risk near coastal areas"</h3>
+</ul>
+<h3 id="4-population-at-risk-near-coastal-areas">4. Population at risk near coastal areas</h3>
 <ul>
 <li>needed geodata:<ul>
 <li>Worldwide SRTM 30m (already available in actinia as <code>srtmgl1_v003_30m</code> - find out the location yourself)</li>
