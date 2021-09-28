@@ -36,16 +36,18 @@
           "value": "ne_1000m_coastline@coastlines"
         },
         {
-          "param": "output",
-          "value": "coastline_buffered"
-        },
-        {
           "param": "distances",
           "value": "5000"
         },
         {
           "param": "units",
           "value": "meters"
+        }
+      ],
+      "outputs": [
+        {
+          "param": "output",
+          "value": "coastline_buffered"
         }
       ]
     },
