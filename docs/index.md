@@ -4,7 +4,7 @@
 <img src="img/actinia_intro.png" width="60%">
 </center>
 
-Authors: Markus Neteler, Carmen Tawalika, Anika Weinmann, Guido Riembauer, mundialis GmbH & Co. KG, Bonn
+Authors: Markus Neteler, Carmen Tawalika, Anika Weinmann, Guido Riembauer, Markus Metz, mundialis GmbH & Co. KG, Bonn
 
 <!-- **** Begin Fork-Me-On-Gitlab-Ribbon-HTML. See MIT License at https://gitlab.com/seanwasere/fork-me-on-gitlab **** -->
 <a href="https://github.com/metzm/actinia-introduction/">

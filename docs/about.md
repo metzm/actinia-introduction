@@ -8,6 +8,8 @@ Anika Weinmann studied geodesy and geoinformation at the University of Bonn. In 
 
 Guido Riembauer studied Geoinformation and Visualisation at University of Potsdam and worked as a trainee for ESA’s Earth Observation Programme before joining mundialis in early 2020. He is a developer and data analyst at mundialis and has specialized in (radar) remote sensing. Guido is involved in the development of [GRASS-GIS](https://github.com/OSGeo/grass-addons) and [actinia](https://github.com/mundialis/actinia_core) modules to import and analyse Copernicus Sentinel data.
 
+Markus Metz holds a PhD in natural sciences and joined mundialis in 2018 as developer and data analyst. Markus is a long-time developer for [GRASS-GIS](https://github.com/OSGeo/grass-addons) focussing on vector topology, efficient sorting and searching methods, network analysis, and big data management.
+
 # Any feedback?
 
 Please write to me at: neteler @ mundialis.de

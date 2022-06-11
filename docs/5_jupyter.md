@@ -59,3 +59,5 @@ Ready to use Google Colab links:
 * [Actinia database access](https://colab.research.google.com/github/mundialis/actinia-jupyter/blob/main/notebooks/actinia_database_access.ipynb)
 * [Time-series sampling](https://colab.research.google.com/github/mundialis/actinia-jupyter/blob/main/notebooks/actinia_strds_sampling.ipynb)
 * [User defined processing](https://colab.research.google.com/github/mundialis/actinia-jupyter/blob/main/notebooks/actinia_process_chain.ipynb)
+
+Note that only a limited list of GRASS modules is allowed for the actinia demouser.
