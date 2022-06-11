@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   <link href="extra.css" rel="stylesheet" />
   
   <script>
@@ -26,8 +26,9 @@
   
   <script src="js/jquery-2.1.1.min.js" defer></script>
   <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
+  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -41,7 +42,7 @@
         <a href="." class="icon icon-home"> A gentle introduction to actinia</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -56,13 +57,11 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#actinia-tutorial-overview">actinia tutorial overview</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#warming-up">Warming up</a>
-    </li>
     </ul>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="2_concepts/">Some Concepts</a>
+                    <li class="toctree-l1"><a class="reference internal" href="2_concepts/">Concepts of actinia, cloud computing, REST API</a>
                     </li>
                 </ul>
                 <ul>
@@ -74,7 +73,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="5_excercises/">Own exercises in actinia</a>
+                    <li class="toctree-l1"><a class="reference internal" href="5_jupyter/">actinia in jupyter notebooks</a>
                     </li>
                 </ul>
                 <ul>
@@ -114,21 +113,23 @@
   
   <hr/>
 </div>
-
           <div role="main">
             <div class="section">
               
                 <h1 id="a-gentle-introduction-to-actinia">A gentle introduction to actinia</h1>
+<p><center>
+<img src="img/actinia_intro.png" width="60%">
+</center></p>
 <p>Authors: Markus Neteler, Carmen Tawalika, Anika Weinmann, Guido Riembauer, mundialis GmbH &amp; Co. KG, Bonn</p>
 <!-- **** Begin Fork-Me-On-Gitlab-Ribbon-HTML. See MIT License at https://gitlab.com/seanwasere/fork-me-on-gitlab **** -->
-<p><a href="https://github.com/mmacata/actinia-introduction/">
+<p><a href="https://github.com/metzm/actinia-introduction/">
     <span id="fork-me" style="font-family: tahoma; font-size: 18px; position:fixed; top:50px; right:-45px; display:block; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); color:white; padding: 4px 30px 4px 30px; z-index:99; opacity:0.6">Fork Me On GitHub</span>
 </a></p>
 <!-- **** End Fork-Me-On-Gitlab-Ribbon-HTML **** -->
 
-<p>URL of this dcument: <a href="https://mmacata.github.io/actinia-introduction/">https://mmacata.github.io/actinia-introduction/</a></p>
-<p>This workshop is a fork of <a href="https://neteler.gitlab.io/actinia-introduction">https://neteler.gitlab.io/actinia-introduction</a>. The initial workshop has a more detailed chapter about ace - the actinia command execution. This workshop focuses more on the "bare" HTTP API from actinia and extended excercises.</p>
-<p><em>Last update: 24 Sep 2021</em></p>
+<p>URL of this dcument: <a href="https://metzm.github.io/actinia-introduction/">https://metzm.github.io/actinia-introduction/</a></p>
+<p>This workshop is a fork of <a href="https://mmacata.github.io/actinia-introduction/">https://mmacata.github.io/actinia-introduction/</a>. The initial workshop has a more detailed chapter about ace - the actinia command execution. This workshop focuses more on the "bare" HTTP API from actinia and extended excercises.</p>
+<p><em>Last update: 10 jun 2022</em></p>
 <h2 id="abstract">Abstract</h2>
 <p><img src="img/actinia_logo.svg" width="30%" align="right"></p>
 <p>Actinia (<a href="https://actinia.mundialis.de/">https://actinia.mundialis.de/</a>) is an open source REST API for scalable, distributed, high performance processing of geographical data that uses mainly GRASS GIS for computational tasks. Core functionality includes the processing of single scenes and time series of satellite images, of raster and vector data. With the existing (e.g. Landsat) and Copernicus Sentinel big geodata pools which are growing day by day, actinia is designed to follow the paradigm of bringing algorithms to the cloud stored geodata. Actinia is an OSGeo Community Project since 2019.</p>
@@ -168,8 +169,7 @@ you can follow <a href="https://neteler.gitlab.io/actinia-introduction/#preparat
 <h2 id="actinia-tutorial-overview">actinia tutorial overview</h2>
 <p><strong>Content</strong></p>
 <ul>
-<li>Warming up</li>
-<li>Some Concepts<ul>
+<li>Concepts of actinia, cloud computing, REST API<ul>
 <li>Why cloud computing?</li>
 <li>Overview actinia</li>
 <li>REST API and geoprocessing basics</li>
@@ -185,8 +185,8 @@ you can follow <a href="https://neteler.gitlab.io/actinia-introduction/#preparat
 <li>actinia Connector - a QGIS plugin</li>
 </ul>
 </li>
-<li>Own exercises in actinia<ul>
-<li>What is the altitude of the highest point in North Carolina? Check it with actinia.</li>
+<li>actinia in jupyter notebooks<ul>
+<li>Getting started with jupyter notebooks</li>
 <li>Find the zipcode in Wake county with the most hospitals</li>
 <li>Export the water bodies from the available Landsat imagery of North Carolina</li>
 <li>Population at risk near coastal areas</li>
@@ -197,15 +197,14 @@ you can follow <a href="https://neteler.gitlab.io/actinia-introduction/#preparat
 <li>References</li>
 <li>About the trainers</li>
 </ul>
-<h2 id="warming-up">Warming up</h2>
 <!--
-(duration: 20 min)
--->
+## Warming up
 
-<p>To make you familiar with a few concepts, let's take a look at the "graphical intro to actinia" - <a href="https://mundialis.github.io/foss4g2019/grass-gis-in-the-cloud-actinia-geoprocessing/index.html">GRASS GIS in the cloud: actinia geoprocessing</a> (note: it requires the Chrome/ium browser; presentation provided by <a href="https://github.com/mmacata/">Carmen Tawalika</a>, mundialis).</p>
-<p><center>
-<img src="img/actinia_intro.png" width="60%">
-</center></p>
+(duration: 20 min)
+
+To make you familiar with a few concepts, let's take a look at the "graphical intro to actinia" - [GRASS GIS in the cloud: actinia geoprocessing](https://mundialis.github.io/foss4g2019/grass-gis-in-the-cloud-actinia-geoprocessing/index.html) (note: it requires the Chrome/ium browser; presentation provided by <a href="https://github.com/mmacata/">Carmen Tawalika</a>, mundialis).
+
+-->
               
             </div>
           </div>
@@ -213,7 +212,7 @@ you can follow <a href="https://neteler.gitlab.io/actinia-introduction/#preparat
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="2_concepts/" class="btn btn-neutral float-right" title="Some Concepts">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="2_concepts/" class="btn btn-neutral float-right" title="Concepts of actinia, cloud computing, REST API">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -237,16 +236,15 @@ you can follow <a href="https://neteler.gitlab.io/actinia-introduction/#preparat
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-    
-      <span><a href="2_concepts/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="2_concepts/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
 </div>
     <script>var base_url = '.';</script>
-    <script src="js/theme_extra.js" defer></script>
     <script src="js/theme.js" defer></script>
       <script src="search/main.js" defer></script>
     <script defer>
@@ -259,6 +257,6 @@ you can follow <a href="https://neteler.gitlab.io/actinia-introduction/#preparat
 </html>
 
 <!--
-MkDocs version : 1.2.2
-Build Date UTC : 2021-09-27 13:43:53.214438+00:00
+MkDocs version : 1.1.2
+Build Date UTC : 2022-06-11 12:51:17.636842+00:00
 -->

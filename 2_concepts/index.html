@@ -9,25 +9,26 @@
   
   <link rel="canonical" href="https://pages.gitlab.io/actinia-introduction/2_concepts/">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Some Concepts - A gentle introduction to actinia</title>
+  <title>Concepts of actinia, cloud computing, REST API - A gentle introduction to actinia</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   <link href="../extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Some Concepts";
+    var mkdocs_page_name = "Concepts of actinia, cloud computing, REST API";
     var mkdocs_page_input_path = "2_concepts.md";
     var mkdocs_page_url = "/actinia-introduction/2_concepts/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
+  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -41,7 +42,7 @@
         <a href=".." class="icon icon-home"> A gentle introduction to actinia</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -52,7 +53,7 @@
                     </li>
                 </ul>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Some Concepts</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Concepts of actinia, cloud computing, REST API</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#why-cloud-computing">Why cloud computing?</a>
     </li>
@@ -92,7 +93,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../5_excercises/">Own exercises in actinia</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../5_jupyter/">actinia in jupyter notebooks</a>
                     </li>
                 </ul>
                 <ul>
@@ -124,7 +125,7 @@
     
       
     
-    <li>Some Concepts</li>
+    <li>Concepts of actinia, cloud computing, REST API</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -132,11 +133,10 @@
   
   <hr/>
 </div>
-
           <div role="main">
             <div class="section">
               
-                <h1 id="some-concepts">Some Concepts</h1>
+                <h1 id="concepts-of-actinia-cloud-computing-rest-api">Concepts of actinia, cloud computing, REST API</h1>
 <!--
 (duration: 10 min)
 -->
@@ -193,7 +193,7 @@ Fig. 1: Components of actinia (core and plugins)
 <p>The <strong>ephemeral storage</strong> is used for on demand computed results including user generated data and temporary data as occurring in processing chains. In an ephemeral storage, data are only kept for a limited period of time (e.g., in actinia, for 24 hs by default).</p>
 <p>In the cloud computing context these differences are relevant as cost incurs when storing data.</p>
 <p>Accordingly, actinia offers two modes of operation: persistent and ephemeral processing. In particular, the <strong>actinia server</strong> is typically deployed on a server with access to a persistent GRASS GIS database (PDB) and optionally to one or more GRASS GIS user databases (UDB).</p>
-<p>Actinia is deployed multiple times as so called <strong>actinia nodes</strong> (separate physically distinct machines) where the actual computations are performed. They can be deployed with the help of cloud technology like e.g. kubernetes, openshift and docker-swarm. This technology then acts as a <strong>load balancer</strong>, distributing jobs to actinia nodes. Results are either stored in GRASS UDBs in GRASS native format or directly exported to a different data format (see Fig. 2).</p>
+<p>Actinia is deployed multiple times as so called <strong>actinia nodes</strong> (separate physically distinct machines) where the actual computations are performed. They can be deployed with the help of cloud technology like e.g. kubernetes, openshift and docker-swarm. This technology then acts as a <strong>load balancer</strong>, distributing jobs to actinia nodes. Results are either stored in GRASS UDBs in GRASS native format or directly exported to a different data format such as GeoTIFF (see Fig. 2).</p>
 <p><center>
 <a href="../img/actinia_PDB_UDB.png"><img src="../img/actinia_PDB_UDB.png" width="60%"></a><br>
 Fig. 2: Persistent and ephemeral storage with actinia nodes (source: <a href="https://mundialis.github.io/foss4g2019/grass-gis-in-the-cloud-actinia-geoprocessing/index.html">mundialis FTTH talk 2019</a>)
@@ -205,8 +205,10 @@ Fig. 2: Persistent and ephemeral storage with actinia nodes (source: <a href="ht
 <li>external data sources: import providers for various external data sources,</li>
 <li>interface layer:<ul>
 <li>most importantly, the <strong>REST API</strong>,</li>
-<li><a href="https://github.com/Open-EO/openeo-grassgis-driver">openEO GRASS GIS driver</a>,</li>
 <li>ace - <a href="https://github.com/mundialis/ace">actinia command execution</a> (to be run in a GRASS GIS session),</li>
+<li><a href="https://github.com/mundialis/actinia-python-client">actinia python client</a>,</li>
+<li><a href="https://github.com/Open-EO/openeo-grassgis-driver">openEO GRASS GIS driver</a>,</li>
+<li><a href="https://apps.mundialis.de/actinia_connector/plugins.xml">actinia QGIS plugin</a></li>
 </ul>
 </li>
 <li>GDI management: actinia-gdi helps integrating actinia-core in an existing GDI (Geodata Infrastructure, also called SDI: Spatial Data Infrastructure) including process-chain manipulation and job management, through <a href="https://github.com/mundialis/actinia-gdi">actinia-GDI</a>,</li>
@@ -286,7 +288,7 @@ The final part of an endpoint are the query parameters. Using query parameters y
 </ul>
 <h3 id="related-data-format-json">Related data format: JSON</h3>
 <p>JSON is a structured, machine readable format (while also human readable; in contrast to XML, at least for many people). <a href="https://json.org/">JSON</a> is short for JavaScript Object Notation. For example, this command line call...</p>
-<pre><code class="language-bash">GRASS 7.8.git (nc_spm_08):~ &gt; v.buffer input=roadlines output=roadbuf10 distance=10 --json
+<pre><code class="language-bash">GRASS (nc_spm_08):~ &gt; v.buffer input=roadlines output=roadbuf10 distance=10 --json
 </code></pre>
 <p>... looks like the following in JSON:</p>
 <pre><code class="language-json">{
@@ -339,18 +341,17 @@ The final part of an endpoint are the query parameters. Using query parameters y
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../3_explore/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../3_explore/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
 </div>
     <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
     <script defer>
