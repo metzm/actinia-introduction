@@ -67,7 +67,7 @@ Please see [CONTRIBUTING.md](https://github.com/mundialis/actinia_core/blob/mast
 
 [2] Planet 2019: Developer resource center, [https://developers.planet.com/planetschool/rest-apis/](https://developers.planet.com/planetschool/rest-apis/)
 
-[3] [actinia API reference](https://redocly.github.io/redoc/?url=https://actinia.mundialis.de/api/v1/swagger.json) documentation
+[3] [actinia API reference](https://redocly.github.io/redoc/?url=https://actinia.mundialis.de/api/v3/swagger.json) documentation
 
 [4] actinia article: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2631917.svg)](https://doi.org/10.5281/zenodo.2631917)
 

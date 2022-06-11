@@ -1,4 +1,4 @@
-# Some Concepts
+# Concepts of actinia, cloud computing, REST API
 
 <!--
 (duration: 10 min)
@@ -70,7 +70,7 @@ In the cloud computing context these differences are relevant as cost incurs whe
 
 Accordingly, actinia offers two modes of operation: persistent and ephemeral processing. In particular, the **actinia server** is typically deployed on a server with access to a persistent GRASS GIS database (PDB) and optionally to one or more GRASS GIS user databases (UDB).
 
-Actinia is deployed multiple times as so called **actinia nodes** (separate physically distinct machines) where the actual computations are performed. They can be deployed with the help of cloud technology like e.g. kubernetes, openshift and docker-swarm. This technology then acts as a **load balancer**, distributing jobs to actinia nodes. Results are either stored in GRASS UDBs in GRASS native format or directly exported to a different data format (see Fig. 2).
+Actinia is deployed multiple times as so called **actinia nodes** (separate physically distinct machines) where the actual computations are performed. They can be deployed with the help of cloud technology like e.g. kubernetes, openshift and docker-swarm. This technology then acts as a **load balancer**, distributing jobs to actinia nodes. Results are either stored in GRASS UDBs in GRASS native format or directly exported to a different data format such as GeoTIFF (see Fig. 2).
 
 <center>
 <a href="../img/actinia_PDB_UDB.png"><img src="../img/actinia_PDB_UDB.png" width="60%"></a><br>
@@ -85,8 +85,10 @@ Several **components** play a role in a cloud deployment of actinia (for an exam
 * external data sources: import providers for various external data sources,
 * interface layer:
     * most importantly, the **REST API**,
-    * [openEO GRASS GIS driver](https://github.com/Open-EO/openeo-grassgis-driver),
     * ace - [actinia command execution](https://github.com/mundialis/ace) (to be run in a GRASS GIS session),
+    * [actinia python client](https://github.com/mundialis/actinia-python-client),
+    * [openEO GRASS GIS driver](https://github.com/Open-EO/openeo-grassgis-driver),
+    * [actinia QGIS plugin](https://apps.mundialis.de/actinia_connector/plugins.xml)
 * GDI management: actinia-gdi helps integrating actinia-core in an existing GDI (Geodata Infrastructure, also called SDI: Spatial Data Infrastructure) including process-chain manipulation and job management, through [actinia-GDI](https://github.com/mundialis/actinia-gdi),
 * metadata management: interface to GNOS via OGC-CSW, managed through [actinia-metadata-plugin](https://github.com/mundialis/actinia-metadata-plugin),
 * module self-description and process-chain-template management and processing, managed through [actinia-module-plugin](https://github.com/mundialis/actinia-module-plugin),
@@ -179,7 +181,7 @@ Request **methods** (source: [2]):
 JSON is a structured, machine readable format (while also human readable; in contrast to XML, at least for many people). [JSON](https://json.org/) is short for JavaScript Object Notation. For example, this command line call...
 
 ```bash
-GRASS 7.8.git (nc_spm_08):~ > v.buffer input=roadlines output=roadbuf10 distance=10 --json
+GRASS (nc_spm_08):~ > v.buffer input=roadlines output=roadbuf10 distance=10 --json
 ```
 
 ... looks like the following in JSON:
