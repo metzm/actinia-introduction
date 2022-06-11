@@ -1,9 +1,13 @@
 # A gentle introduction to actinia
 
+<center>
+<img src="img/actinia_intro.png" width="60%">
+</center>
+
 Authors: Markus Neteler, Carmen Tawalika, Anika Weinmann, Guido Riembauer, mundialis GmbH & Co. KG, Bonn
 
 <!-- **** Begin Fork-Me-On-Gitlab-Ribbon-HTML. See MIT License at https://gitlab.com/seanwasere/fork-me-on-gitlab **** -->
-<a href="https://github.com/mmacata/actinia-introduction/">
+<a href="https://github.com/metzm/actinia-introduction/">
     <span id="fork-me" style="font-family: tahoma; font-size: 18px; position:fixed; top:50px; right:-45px; display:block; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); color:white; padding: 4px 30px 4px 30px; z-index:99; opacity:0.6">Fork Me On GitHub</span>
 </a>
 <!-- **** End Fork-Me-On-Gitlab-Ribbon-HTML **** -->
@@ -13,7 +17,7 @@ URL of this dcument: [https://mmacata.github.io/actinia-introduction/](https://m
 
 This workshop is a fork of [https://neteler.gitlab.io/actinia-introduction](https://neteler.gitlab.io/actinia-introduction). The initial workshop has a more detailed chapter about ace - the actinia command execution. This workshop focuses more on the "bare" HTTP API from actinia and extended excercises.
 
-*Last update: 24 Sep 2021*
+*Last update: 10 jun 2022*
 
 ## Abstract
 
@@ -52,8 +56,7 @@ Note: We will use the demo actinia server at [https://actinia.mundialis.de/](htt
 
 **Content**
 
-* Warming up
-* Some Concepts
+* Concepts of actinia, cloud computing, REST API
     * Why cloud computing?
     * Overview actinia
     * REST API and geoprocessing basics
@@ -63,8 +66,8 @@ Note: We will use the demo actinia server at [https://actinia.mundialis.de/](htt
 * Client implementations
     * ACE - Controlling actinia from a running GRASS GIS session
     * actinia Connector - a QGIS plugin
-* Own exercises in actinia
-    * What is the altitude of the highest point in North Carolina? Check it with actinia.
+* actinia in jupyter notebooks
+    * Getting started with jupyter notebooks
     * Find the zipcode in Wake county with the most hospitals
     * Export the water bodies from the available Landsat imagery of North Carolina
     * Population at risk near coastal areas
@@ -73,14 +76,11 @@ Note: We will use the demo actinia server at [https://actinia.mundialis.de/](htt
 * References
 * About the trainers
 
+<!--
 ## Warming up
 
-<!--
 (duration: 20 min)
--->
 
 To make you familiar with a few concepts, let's take a look at the "graphical intro to actinia" - [GRASS GIS in the cloud: actinia geoprocessing](https://mundialis.github.io/foss4g2019/grass-gis-in-the-cloud-actinia-geoprocessing/index.html) (note: it requires the Chrome/ium browser; presentation provided by <a href="https://github.com/mmacata/">Carmen Tawalika</a>, mundialis).
 
-<center>
-<img src="img/actinia_intro.png" width="60%">
-</center>
+-->
