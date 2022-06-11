@@ -9,18 +9,6 @@
     * [https://github.com/mundialis/actinia_core/](https://github.com/mundialis/actinia_core/)
 
 
-## UPCOMING
-
-### FOSS4G 2021 talk "news from actinia"
-2021-09-30, 09:30–10:00, Córdoba
-
-<a href="https://callforpapers.2021.foss4g.org/foss4g2021/talk/E9ZA7B/"><img src="../img/news-from-actinia.jpeg" width="60%"></a><br>
-
-### FOSS4G 2021 OSGeo Community sprint
-
-* [details in OSGeo Wiki](https://wiki.osgeo.org/wiki/FOSS4G_2021/Community_sprint)
-* [Kanban Board](https://github.com/mundialis/actinia_core/projects/2)
-
 ## See also
 
 ### What does actinia mean?
@@ -75,14 +63,14 @@ Please see [CONTRIBUTING.md](https://github.com/mundialis/actinia_core/blob/mast
 
 The review by [Vero Andreo](https://veroandreo.gitlab.io/) is greatly appreciated.
 
-As already mentioned above, this workshop is a fork of [an actinia workshop](https://neteler.gitlab.io/actinia-introduction) by Markus Neteler. Main content was reused, some adjustments were made.
+As already mentioned above, this workshop is a fork of [an actinia workshop](https://mmacata.github.io/actinia-introduction/) by Carmen Tawalika. Main content was reused, some parts removed, and some adjustments were made.
 
 Last but not least thanks to Anika Weinmann for creating the documentation about actinia Connector and - in teamwork together with Guido Riembauer -
 for updating the excercises and creating new fun and smaller tasks.
 
 ------------------------------------------------------------------------
 
-- Repository of this material on [github](https://github.com/mmacata/actinia-introduction/)
+- Repository of this material on [github](https://github.com/metzm/actinia-introduction/)
 
 
 *[About](about.md) | [Privacy](https://docs.github.com/en/github/site-policy/github-privacy-statement)*
