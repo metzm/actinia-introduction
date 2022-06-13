@@ -141,29 +141,29 @@
 (duration: 10 min)
 -->
 
-<p>For this tutorial we assume working knowledge concerning <strong>geospatial analysis and Earth observation</strong> (i.e., geodata such as raster, vector, time series, and image data including aerial, drone, and satellite data).
+<p>For this tutorial we assume working knowledge concerning <strong>geospatial analysis and Earth Observation</strong> (i.e., geodata such as raster, vector, time series, and image data including aerial, drone, and satellite data).
 The tutorial includes, however, a brief introduction to <strong>REST</strong> (Representational State Transfer) API basics and cloud processing related hints.</p>
 <h2 id="why-cloud-computing">Why cloud computing?</h2>
-<p>With the tremendous increase of available geospatial and Earth observation lately driven by the European <a href="https://www.copernicus.eu">Copernicus programme</a> (esp. the Sentinel satellites) and the increasing availability of open data, the need for computational resources is growing in a non-linear way.</p>
+<p>With the tremendous increase of available geospatial and Earth Observation (EO) data lately driven by the European <a href="https://www.copernicus.eu">Copernicus programme</a> (esp. the Sentinel satellites) and the increasing availability of open data, the need for computational resources is growing in a non-linear way.</p>
 <p>Cloud technology offers a series of <strong>advantages</strong>:</p>
 <ul>
 <li>scalable, distributed, and high performance processing</li>
-<li>large quantities of Earth Observation (EO) and geodata provided in dedicated cloud infrastructures</li>
-<li>addressing the paradigm of computing next to the data</li>
+<li>large quantities of EO and other geodata provided in dedicated cloud infrastructures</li>
+<li>addressing the paradigm of computing close to the data</li>
 <li>no need to bother yourself with the low-level management of tons of data.</li>
 </ul>
 <p>(Ideally) enjoy the <strong>five V’s of big data</strong>: Volume, velocity, variety, veracity and value.</p>
 <p>Still, some critical <strong>issues</strong> have to be addressed in the geospatial realm:</p>
 <ul>
 <li>lack of Analysis-Ready-data (ARD) available for consumption in the cloud</li>
-<li>lack of compatibility between different data systems<ul>
-<li>btw., we are on it: the <a href="https://openeo.org">openEO H2020 project</a></li>
+<li>lack of compatibility between different data and processing systems<ul>
+<li>an attempt for cross-backend compatibility: the <a href="https://openeo.org">openEO API</a></li>
 </ul>
 </li>
 <li>lack of cloud abstraction, needed for easier move between vendors and providers.</li>
 </ul>
 <h2 id="overview-actinia">Overview actinia</h2>
-<p>Actinia (<a href="https://actinia.mundialis.de/">https://actinia.mundialis.de/</a>) is an <strong>open source REST API for scalable, distributed, high performance processing of geospatial and Earth observation data</strong> that uses mainly GRASS GIS for computational tasks. Core functionality includes the processing of single scenes and time series of satellite images, of raster and vector data. With the existing (e.g. Landsat) and Copernicus Sentinel big geodata pools which are growing day by day, actinia is designed to follow the paradigm of bringing algorithms to the cloud stored geodata. Actinia is an OSGeo Community Project since 2019. The source code is available on GitHub at <a href="https://github.com/mundialis/actinia_core">https://github.com/mundialis/actinia_core</a>. It is written in Python and uses Flask, Redis, and other components.</p>
+<p>Actinia (<a href="https://actinia.mundialis.de/">https://actinia.mundialis.de/</a>) is an <strong>open source REST API for scalable, distributed, high performance processing of geospatial and Earth Observation data</strong> that uses mainly GRASS GIS for computational tasks. Core functionality includes the processing of single scenes and time series of satellite images, of raster and vector data. With the existing (e.g. Landsat) and Copernicus Sentinel big geodata pools which are growing day by day, actinia is designed to follow the paradigm of bringing algorithms to the cloud stored geodata. Actinia is an OSGeo Community Project since 2019. The source code is available on GitHub at <a href="https://github.com/mundialis/actinia_core">https://github.com/mundialis/actinia_core</a>. It is written in Python and uses Flask, Redis, and other components.</p>
 <h3 id="components-of-actinia">Components of actinia</h3>
 <p>Actinia is composed of several components.</p>
 <p>Core system:</p>
@@ -176,7 +176,7 @@ The tutorial includes, however, a brief introduction to <strong>REST</strong> (R
 <li><a href="https://github.com/mundialis/actinia-metadata-plugin">actinia-metadata-plugin</a>: contains communication with a metadata catalog via OGC-CSW, in usage with GeoNetwork opensource</li>
 <li><a href="https://github.com/mundialis/actinia_statistic_plugin">actinia-statistic-plugin</a>: designed for computing raster map and raster-time-series statistics for categorical and continuous data</li>
 <li><a href="https://github.com/mundialis/actinia_satellite_plugin">actinia-satellite-plugin</a>: designed for efficient satellite data handling, especially Landsat and Sentinel-2 scenes</li>
-<li><a href="https://github.com/mundialis/actinia-stac-plugin">actinia-stac-plugin</a>: Plugin for actinia to read STAC catalogs and retrieve data for processing</li>
+<li><a href="https://github.com/mundialis/actinia-stac-plugin">actinia-stac-plugin</a>: Plugin for actinia to read STAC catalogs and to retrieve data for processing</li>
 </ul>
 <p>Related:</p>
 <ul>
@@ -187,10 +187,10 @@ The tutorial includes, however, a brief introduction to <strong>REST</strong> (R
 Fig. 1: Components of actinia (core and plugins)
 </center></p>
 <p><strong>Functionality beyond GRASS GIS</strong></p>
-<p>Actinia is not only a REST interface to GRASS GIS, but it offers the possibility to extend its functionality with other software (ESA SNAP, GDAL, ...). To integrate other than GRASS GIS software, a wrapper script is to be written (style: as a GRASS GIS Addon Python script) which then includes the respective function calls of the software to be integrated. Calling shell commands in an actinia process chain is also possible but limited due to security risks.</p>
+<p>Actinia is not only a REST interface to GRASS GIS, but it offers the possibility to extend its functionality with other software (ESA SNAP, GDAL, ...). To integrate other than GRASS GIS software, a wrapper script needs to be written (style: as a GRASS GIS Addon Python script) which then includes the respective function calls of the software to be integrated. Such a new addon needs to be added to the list of allowed GRASS GIS modules. Calling shell commands in an actinia process chain is also possible but limited due to security risks.</p>
 <p><strong>Persistent and ephemeral databases</strong></p>
 <p><strong>Persistent storage</strong> refers to a data store that retains data even in the event of a power-off, as well as retaining it without a scheduled deletion time. In the geo/EO context, persistent storage is used to provide, for example, base cartography, i.e. elevation models, road networks, building footprints, etc.</p>
-<p>The <strong>ephemeral storage</strong> is used for on demand computed results including user generated data and temporary data as occurring in processing chains. In an ephemeral storage, data are only kept for a limited period of time (e.g., in actinia, for 24 hs by default).</p>
+<p>The <strong>ephemeral storage</strong> is used for on demand computed results including user generated data and temporary data as occurring in processing chains. In an ephemeral storage, data are only kept for a limited period of time (e.g., in actinia, for 24 hs by default). Typically, in the last step of ephemeral processing, the final results are exported e.g. as GeoTIFFs and a download link is provided. </p>
 <p>In the cloud computing context these differences are relevant as cost incurs when storing data.</p>
 <p>Accordingly, actinia offers two modes of operation: persistent and ephemeral processing. In particular, the <strong>actinia server</strong> is typically deployed on a server with access to a persistent GRASS GIS database (PDB) and optionally to one or more GRASS GIS user databases (UDB).</p>
 <p>Actinia is deployed multiple times as so called <strong>actinia nodes</strong> (separate physically distinct machines) where the actual computations are performed. They can be deployed with the help of cloud technology like e.g. kubernetes, openshift and docker-swarm. This technology then acts as a <strong>load balancer</strong>, distributing jobs to actinia nodes. Results are either stored in GRASS UDBs in GRASS native format or directly exported to a different data format such as GeoTIFF (see Fig. 2).</p>
@@ -207,8 +207,8 @@ Fig. 2: Persistent and ephemeral storage with actinia nodes (source: <a href="ht
 <li>most importantly, the <strong>REST API</strong>,</li>
 <li>ace - <a href="https://github.com/mundialis/ace">actinia command execution</a> (to be run in a GRASS GIS session),</li>
 <li><a href="https://github.com/mundialis/actinia-python-client">actinia python client</a>,</li>
-<li><a href="https://github.com/Open-EO/openeo-grassgis-driver">openEO GRASS GIS driver</a>,</li>
-<li><a href="https://apps.mundialis.de/actinia_connector/plugins.xml">actinia QGIS plugin</a></li>
+<li><a href="https://apps.mundialis.de/actinia_connector/plugins.xml">actinia QGIS plugin</a>,</li>
+<li><a href="https://github.com/Open-EO/openeo-grassgis-driver">openEO GRASS GIS driver</a></li>
 </ul>
 </li>
 <li>GDI management: actinia-gdi helps integrating actinia-core in an existing GDI (Geodata Infrastructure, also called SDI: Spatial Data Infrastructure) including process-chain manipulation and job management, through <a href="https://github.com/mundialis/actinia-gdi">actinia-GDI</a>,</li>
@@ -237,7 +237,7 @@ Fig. 3: Architecture of an actinia deployment (source: mundialis)
 -->
 
 <h3 id="what-is-rest-intro">What is REST: intro</h3>
-<p>An <strong>API</strong> (Application Programming Interface) defines a way of communicating between different software applications. A <strong>RESTful</strong> API (Representational State Transfer - REST, for details see <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">https://en.wikipedia.org/wiki/Representational_state_transfer</a>) is a web API for communicating with web resources.</p>
+<p>An <strong>API</strong> (Application Programming Interface) defines a way of communicating between different software applications. A <strong>RESTful</strong> API (Representational State Transfer - REST, for details see <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">https://en.wikipedia.org/wiki/Representational_state_transfer</a>), is a web API for communicating with web resources.</p>
 <p>In detail, a REST API uses URL arguments to specify what information shall be returned through the API. This is not much different from requesting a Web page in a browser, but through the REST API we can <strong>execute commands remotely and retrieve the results</strong>.</p>
 <p>Each URL is called a <strong>request</strong> while the data sent back to the user is called a <strong>response</strong>, after some <strong>processing</strong> was performed.</p>
 <p>There are two types of request: <strong>synchronous</strong> and <strong>asynchronous</strong>. In the case of a synchronous request, the client sends it to the server and waits for a response. In geospatial computing, processing can take some time, which would block the client because it is only waiting. In default configurations the communication is canceled by the client after some minutes, called a "timeout". To avoid this, there is also the asynchronous request type. Here the client does not wait directly for a response, but checks from time to time whether the job has been completed (by "polling"), or by providing an API itself which will be informed when the job is finished ("webhook").</p>
