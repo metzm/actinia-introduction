@@ -15,15 +15,21 @@ Authors: Markus Neteler, Carmen Tawalika, Anika Weinmann, Guido Riembauer, Marku
 
 URL of this dcument: [https://metzm.github.io/actinia-introduction/](https://metzm.github.io/actinia-introduction/)
 
-This workshop is a fork of [https://mmacata.github.io/actinia-introduction/](https://mmacata.github.io/actinia-introduction/). The initial workshop has a more detailed chapter about ace - the actinia command execution. This workshop focuses more on the "bare" HTTP API from actinia and extended excercises.
+This workshop is a fork of [https://mmacata.github.io/actinia-introduction/](https://mmacata.github.io/actinia-introduction/). The initial workshop has more exercises. This workshop focuses on the "bare" HTTP API from actinia and jupyter notebooks to interact with actinia.
 
-*Last update: 10 jun 2022*
+*Last update: 13 jun 2022*
 
 ## Abstract
 
 <img src="img/actinia_logo.svg" width="30%" align="right">
 
-Actinia ([https://actinia.mundialis.de/](https://actinia.mundialis.de/)) is an open source REST API for scalable, distributed, high performance processing of geographical data that uses mainly GRASS GIS for computational tasks. Core functionality includes the processing of single scenes and time series of satellite images, of raster and vector data. With the existing (e.g. Landsat) and Copernicus Sentinel big geodata pools which are growing day by day, actinia is designed to follow the paradigm of bringing algorithms to the cloud stored geodata. Actinia is an OSGeo Community Project since 2019.
+Actinia ([https://actinia.mundialis.de/](https://actinia.mundialis.de/)) is an open source REST API for processing of geographical data in cloud computing systems that uses mainly GRASS GIS for computational tasks. Core functionality includes the processing of single scenes and time series of satellite images, of raster and vector data. With the existing big geodata pools growing day by day (e.g. Landsat and the Sentinel family), actinia is designed to follow the paradigm of bringing algorithms to the cloud stored geodata.
+
+<!--
+Nonsense: actinia is currently nowhere near the original cloud stored data. Instead, actinia requires the transfer of original cloud stored data to the cloud of the actual actinia instance.
+-->
+
+Actinia is an [OSGeo Community Project](https://www.osgeo.org/projects/actinia/) since 2019.
 
 In this course we will briefly give a short introduction to REST API and cloud processing concepts. This is followed by an introduction to actinia processing along with hands-on to get more familiar with the topic by means of exercises.
 
@@ -66,14 +72,11 @@ Note: We will use the demo actinia server at [https://actinia.mundialis.de/](htt
 * Client implementations
     * ACE - Controlling actinia from a running GRASS GIS session
     * actinia Connector - a QGIS plugin
-* actinia in jupyter notebooks
+    * actinia python client
+* actinia with jupyter notebooks
     * Getting started with jupyter notebooks
-    * Find the zipcode in Wake county with the most hospitals
-    * Export the water bodies from the available Landsat imagery of North Carolina
-    * Population at risk near coastal areas
+    * actinia jupyter notebooks
 * Conclusions and future
-* See also: openEO resources
-* References
 * About the trainers
 
 <!--

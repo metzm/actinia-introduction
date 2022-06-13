@@ -21,8 +21,9 @@ Please see [CONTRIBUTING.md](https://github.com/mundialis/actinia_core/blob/mast
 
 ### openEO resources
 
-* OpenEO Web Editor: [https://open-eo.github.io/openeo-web-editor/demo/](https://open-eo.github.io/openeo-web-editor/demo/)
-    * Server: [https://openeo.mundialis.de](https://openeo.mundialis.de)
+* OpenEO Web Editor: [https://editor.openeo.org/](https://editor.openeo.org)
+    * works with any openEO backend
+    * actinia backend: [https://openeo.mundialis.de](https://openeo.mundialis.de)
     * user, password: upon request
 
 ## actinia, plugins and related repositories

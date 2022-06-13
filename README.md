@@ -1,8 +1,8 @@
 # actinia-introduction
 
-Introduction to actinia cloud geoprocessing (https://actinia.mundialis.de/) - see tutorial at https://mmacata.github.io/actinia-introduction/
+Introduction to actinia cloud geoprocessing (https://actinia.mundialis.de/) - see tutorial at https://metzm.github.io/actinia-introduction/
 
-This workshop is a fork of https://neteler.gitlab.io/actinia-introduction. The initial workshop has a more detailed chapter about ace - the actinia command execution. This workshop focuses more on the "bare" HTTP API from actinia.
+This workshop is a fork of https://mmacata.github.io/actinia-introduction. The initial workshop has more exercises. This workshop focuses on the "bare" HTTP API from actinia and jupyter notebooks to interact with actinia.
 
 ## How to build locally
 

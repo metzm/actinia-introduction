@@ -240,3 +240,10 @@ If persistent processing is used, a mapset name must be entered in the empty tex
 
 <a href="../img/ac_05_processing.jpg"><img src="../img/ac_05_processing.jpg" width="60%"></a><br>
 Fig. 15: actinia connector, persistent and ephemeral processing
+
+
+## actinia python client
+
+Available at [https://github.com/mundialis/actinia-python-client](https://github.com/mundialis/actinia-python-client), work in progress.
+
+The actinia python client is a python library with convenience functions to easily interact with a selected actinia instance. 
