@@ -247,3 +247,5 @@ Fig. 15: actinia connector, persistent and ephemeral processing
 Available at [https://github.com/mundialis/actinia-python-client](https://github.com/mundialis/actinia-python-client), work in progress.
 
 The actinia python client is a python library with convenience functions to easily interact with a selected actinia instance. 
+
+See the [actinia python client docs](https://mundialis.github.io/actinia-python-client/).

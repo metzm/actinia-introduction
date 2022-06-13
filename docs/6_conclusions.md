@@ -62,7 +62,7 @@ Please see [CONTRIBUTING.md](https://github.com/mundialis/actinia_core/blob/mast
 
 ## Acknowledgement
 
-The review by [Vero Andreo](https://veroandreo.gitlab.io/) is greatly appreciated.
+The review by [Vero Andreo](https://veroandreo.gitlab.io/) on the original tutorial is greatly appreciated!
 
 As already mentioned above, this workshop is a fork of [an actinia workshop](https://mmacata.github.io/actinia-introduction/) by Carmen Tawalika. Main content was reused, some parts removed, and some adjustments were made.
 
