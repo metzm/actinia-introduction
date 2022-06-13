@@ -31,7 +31,7 @@ Nonsense: actinia is currently nowhere near the original cloud stored data. Inst
 
 Actinia is an [OSGeo Community Project](https://www.osgeo.org/projects/actinia/) since 2019.
 
-In this course we will briefly give a short introduction to REST API and cloud processing concepts. This is followed by an introduction to actinia processing along with hands-on to get more familiar with the topic by means of exercises.
+In this course we will give a short introduction to REST API and cloud processing concepts. This is followed by an introduction to actinia processing along with hands-on to get more familiar with the topic by means of exercises.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2631917.svg)](https://doi.org/10.5281/zenodo.2631917)
 

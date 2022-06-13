@@ -48,7 +48,7 @@ Step 4:
 ### Summary
 
 So far we have seen some REST basics and explored a few endpoints provided by actinia.
-Indeed the structure of the endpoints follow some GRASS GIS concepts (compare the graphical introduction above), but this does not limit us much from processing "any" geospatial data.
+Indeed the structure of the endpoints follow some GRASS GIS concepts, but this does not limit us much from processing "any" geospatial data.
 
 
 ## Exploring the API: finding available actinia endpoints
@@ -85,18 +85,11 @@ Check out some of the various sections in the [actinia API docs](https://redocly
 
 List of endpoints, shown in the web browser:
 
-* To see a simple **list of endpoints** (and more), have a look at the "paths" section in the [API JSON](https://actinia.mundialis.de/api/v3/swagger.json). If the formatting looks "ugly", get the [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa) extension.
+* To see a simple **list of endpoints** (and more), have a look at the "paths" section in the [API JSON](https://actinia.mundialis.de/api/v3/swagger.json). If the formatting looks "ugly" in Chrome/ium, get the [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa) extension.
 
 <center>
 <a href="../img/actinia_swagger_paths.png"><img src="../img/actinia_swagger_paths.png" width="60%"></a><br>
 Fig. 5: actinia list of endpoints (in the "paths" section)
-</center>
-
-* **List of supported processes** (> 500): see [API modules](https://actinia.mundialis.de/api/v3/modules) (note: the process chain templates are at bottom, category "actinia-module")
-
-<center>
-<a href="../img/actinia_modules.png"><img src="../img/actinia_modules.png" width="60%"></a><br>
-Fig. 6: actinia list of GRASS GIS processes (> 500)
 </center>
 
 List of endpoints shown on command line:
@@ -150,6 +143,14 @@ curl -X GET https://actinia.mundialis.de/api/v3/swagger.json | json paths | json
  ... see above
 ```
 -->
+
+* **List of supported processes** (> 500): see [API modules](https://actinia.mundialis.de/api/v3/modules) (note: the process chain templates are at bottom, category "actinia-module")
+
+<center>
+<a href="../img/actinia_modules.png"><img src="../img/actinia_modules.png" width="60%"></a><br>
+Fig. 6: actinia list of GRASS GIS processes (> 500)
+</center>
+
 
 ### REST actinia examples with curl
 
@@ -311,7 +312,7 @@ curl ${AUTH} -X POST -H "content-type: application/json" "${actinia}/api/v3/loca
 Why validation? It may happen that your JSON file to be sent to the endpoint contains a typo or other invalid content. For the identification of problems prior to executing the commands contained in the JSON file (which may last for hours), it is recommended to validate this file.
 For this, actinia can be used as it provides a validation endpoint.
 
-Example: Download the process chain [process_chain_long.json](https://github.com/mmacata/actinia-introduction/raw/main/docs/process_chain_long.json) and validate it:
+Example: Download the process chain [process_chain_long.json](https://github.com/metzm/actinia-introduction/raw/main/docs/process_chain_long.json) and validate it:
 
 ```bash
 # validation of a process chain (using sync call)
@@ -321,7 +322,7 @@ curl ${AUTH} -H "Content-Type: application/json" -X POST "${actinia}/api/v3/loca
 #### Converting a process chain back into commands
 
 To turn a process chain back into command style notation, the validator can be used and the relevant code extracted from the resulting JSON response.
-Download the process chain [process_chain_long.json](https://gitlab.com/neteler/actinia-introduction/raw/master/docs/process_chain_long.json) and extract the section containing the underlying commands by parsing the actinia server response with `jq`:
+Download the process chain [process_chain_long.json](https://github.com/metzm/actinia-introduction/raw/main/docs/process_chain_long.json) and extract the section containing the underlying commands by parsing the actinia server response with `jq`:
 
 ```bash
 # command extraction from a process chain (using sync call) by parsing the 'process_results' response (here we use the `jq` tool:)
@@ -364,7 +365,7 @@ The general procedure comprises:
 (see also: [https://github.com/mundialis/actinia_core/blob/master/scripts/curl_commands.sh#L77](https://github.com/mundialis/actinia_core/blob/master/scripts/curl_commands.sh#L77)
 -->
 
-To turn this concept into an example, we use again the process chain [process_chain_long.json](https://gitlab.com/neteler/actinia-introduction/raw/master/docs/process_chain_long.json) from above and execute it, here using the asynchonous `processing_async_export` endpoint. By this, the `exporter` in the process chain will be activated and deliver the computed maps as Web resources for subsequent download:
+To turn this concept into an example, we use again the process chain [process_chain_long.json](https://github.com/metzm/actinia-introduction/raw/main/docs/process_chain_long.json) from above and execute it, here using the asynchonous `processing_async_export` endpoint. By this, the `exporter` in the process chain will be activated and deliver the computed maps as Web resources for subsequent download:
 
 ```bash
 curl ${AUTH} --no-progress-meter -H "Content-Type: application/json" -X POST "${actinia}/api/v3/locations/nc_spm_08/processing_async_export" -d @process_chain_long.json | jq
